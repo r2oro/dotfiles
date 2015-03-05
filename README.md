@@ -111,7 +111,7 @@ Here is the current list:
 
 ## Configuring the Screen
 - Require password immediately after sleep or screen saver begins
-- Save screenshots to the desktop
+- Save screenshots to ~${HOME}/Pictures/Screenshots
 - Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 - Disable shadow in screenshots
 - Enable subpixel font rendering on non-Apple LCDs

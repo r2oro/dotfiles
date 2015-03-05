@@ -1,0 +1,34 @@
+changed locations for screencaps
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/README.md b/README.md
+index ff0676e..e938b1f 100644
+--- a/README.md
++++ b/README.md
+@@ -111,7 +111,7 @@ Here is the current list:
+ 
+ ## Configuring the Screen
+ - Require password immediately after sleep or screen saver begins
+-- Save screenshots to the desktop
++- Save screenshots to ~${HOME}/Pictures/Screenshots
+ - Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+ - Disable shadow in screenshots
+ - Enable subpixel font rendering on non-Apple LCDs
+diff --git a/osx.sh b/osx.sh
+index 7690df7..9e1fd36 100755
+--- a/osx.sh
++++ b/osx.sh
+@@ -431,8 +431,8 @@ running "Require password immediately after sleep or screen saver begins"
+ defaults write com.apple.screensaver askForPassword -int 1
+ defaults write com.apple.screensaver askForPasswordDelay -int 0;ok
+ 
+-running "Save screenshots to the desktop"
+-defaults write com.apple.screencapture location -string "${HOME}/Desktop";ok
++running "Save screenshots to Pictures/Screenshots"
++defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots";ok
+ 
+ running "Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)"
+ defaults write com.apple.screencapture type -string "png";ok
