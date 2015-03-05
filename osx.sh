@@ -143,7 +143,7 @@ brew tap caskroom/versions > /dev/null 2>&1
 #require_cask amazon-cloud-drive
 require_cask box-sync
 #require_cask dropbox
-#require_cask evernote
+require_cask evernote
 #require_cask skydrive
 
 # communication
@@ -158,11 +158,12 @@ require_cask github
 require_cask gpgtools
 require_cask ireadfast
 require_cask iterm2
-require_cask lastpass
+require_cask dashlane
 #require_cask macvim
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
+require_cask spectacle
 require_cask sublime-text3
 require_cask the-unarchiver
 #require_cask transmission

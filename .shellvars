@@ -3,7 +3,9 @@ export EDITOR='subl -w'
 
 ################################################
 #http environment variables
-###############################################
+################################################
+export HTTPS_PROXY=http://http-proxy.ha.health.ge.com:88
+export HTTP_PROXY=http://http-proxy.ha.health.ge.com:88
 export http_proxy=http://http-proxy.ha.health.ge.com:88
 export https_proxy=http://http-proxy.ha.health.ge.com:88
 
