@@ -116,6 +116,7 @@ require_brew maven
 require_brew memcached
 require_brew nmap
 require_brew node
+require_brew putty
 require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
