@@ -1,6 +1,11 @@
 # Set Sublime Text as our default command line editor (vi is the default otherwise)
 export EDITOR='subl -w'
 
+################################################
+#http environment variables
+###############################################
+export http_proxy=http://http-proxy.ha.health.ge.com:88
+export https_proxy=http://http-proxy.ha.health.ge.com:88
 
 #########################################################################
 # Temporary aliases useful for demos, other current projects

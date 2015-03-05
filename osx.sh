@@ -75,6 +75,8 @@ require_brew findutils
 # Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
 #install ringojs
 #install narwhal
+#install aws command line interface
+require_brew awscli
 
 # Install other useful binaries
 require_brew ack
@@ -107,8 +109,6 @@ require_brew gnu-sed --default-names
 # better, more recent grep
 require_brew homebrew/dupes/grep
 require_brew hub
-require_brew imagemagick
-require_brew imagesnap
 # jq is a JSON grep
 require_brew jq
 # http://maven.apache.org/
@@ -163,7 +163,7 @@ require_cask lastpass
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
-require_cask sublime-text
+require_cask sublime-text3
 require_cask the-unarchiver
 #require_cask transmission
 require_cask vlc
@@ -175,7 +175,6 @@ require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
 require_cask google-chrome-canary
-require_cask torbrowser
 
 # virtal machines
 require_cask virtualbox

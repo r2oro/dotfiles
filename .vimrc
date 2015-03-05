@@ -7,7 +7,7 @@ if has('gui_running')
 else
     set background=dark
 endif
-colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
 syntax on " syntax highlighting on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
