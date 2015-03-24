@@ -77,7 +77,8 @@ require_brew findutils
 #install narwhal
 #install aws command line interface
 require_brew awscli
-
+require_brew ec2-ami-tools
+require_brew ec2-api-tools
 # Install other useful binaries
 require_brew ack
 # Beanstalk http://kr.github.io/beanstalkd/
@@ -143,6 +144,7 @@ brew tap caskroom/versions > /dev/null 2>&1
 # cloud storage
 #require_cask amazon-cloud-drive
 require_cask box-sync
+require_cask colloquy
 #require_cask dropbox
 require_cask evernote
 #require_cask skydrive

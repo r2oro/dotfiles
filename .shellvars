@@ -8,6 +8,9 @@ export HTTPS_PROXY=http://http-proxy.ha.health.ge.com:88
 export HTTP_PROXY=http://http-proxy.ha.health.ge.com:88
 export http_proxy=http://http-proxy.ha.health.ge.com:88
 export https_proxy=http://http-proxy.ha.health.ge.com:88
+export proxy=http://http-proxy.ha.health.ge.com:88/
+export https-proxy=http://http-proxy.ha.health.ge.com:88/
+export http-proxy=http://http-proxy.ha.health.ge.com:88/
 
 #########################################################################
 # Temporary aliases useful for demos, other current projects
