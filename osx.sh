@@ -605,8 +605,8 @@ bot "Configuring Hot Corners"
 # 11: Launchpad
 # 12: Notification Center
 
-running "Top left screen corner → Mission Control"
-defaults write com.apple.dock wvous-tl-corner -int 2
+running "Top left screen corner → Launchpad"
+defaults write com.apple.dock wvous-tl-corner -int 7
 defaults write com.apple.dock wvous-tl-modifier -int 0;ok
 running "Top right screen corner → Desktop"
 defaults write com.apple.dock wvous-tr-corner -int 4
