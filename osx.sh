@@ -143,6 +143,7 @@ brew tap caskroom/versions > /dev/null 2>&1
 
 # cloud storage
 #require_cask amazon-cloud-drive
+require_cask atom
 require_cask box-sync
 require_cask colloquy
 #require_cask dropbox
@@ -856,6 +857,14 @@ bot "Sublime Text"
 
 running "Install Sublime Text settings"
 cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null;ok
+cp -r configs/Package Control.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Package Control.sublime-settingss 2> /dev/null;ok
+
+###############################################################################
+bot "Atom"
+###############################################################################
+
+running "Atom Proxy settings"
+cp -r configs/.apmrc ~/.atom/.apmrc 2> /dev/null;ok
 
 ###############################################################################
 bot "NPM Globals..."
