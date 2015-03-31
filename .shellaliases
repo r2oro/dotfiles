@@ -1,6 +1,18 @@
 #!/bin/sh
 
 #########################################
+# to find files that are hidden
+#########################################
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+######################
+# Turn proxies on/off
+#####################
+alias proxyon="source $AWS_TOOLS_PATH/proxy-switch.sh on"
+alias proxyoff="source $AWS_TOOLS_PATH/proxy-switch.sh off"
+alias vpn_proxyon="source $AWS_TOOLS_PATH/proxy-switch.sh vpn_on"
+#########################################
 # Connectivity
 #alias ssh.host ='ssh user@host.net'
 
