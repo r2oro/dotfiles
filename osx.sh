@@ -118,6 +118,8 @@ require_brew memcached
 require_brew nmap
 require_brew node
 require_brew putty
+#polipo lets you cache files quick on your machine so vagrant spins up boxes quicker.
+require_brew polipo
 require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
@@ -867,6 +869,15 @@ running "Atom Proxy settings"
 cp -r configs/.apmrc ~/.atom/.apmrc 2> /dev/null;ok
 
 ###############################################################################
+bot "Polipo"
+###############################################################################
+
+running "Configure Polipo to start at bootup"
+ln -sfv /usr/local/opt/polipo/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.polipo.plist
+
+
+###############################################################################
 bot "NPM Globals..."
 ###############################################################################
 
@@ -889,6 +900,9 @@ require_npm trash
 # https://github.com/MrRio/vtop
 require_npm vtop
 require_npm yo
+
+require_npm interfacelift-downloader
+require_npm rally-app-builder
 
 ###############################################################################
 bot "Ruby Gems..."
