@@ -1,7 +1,7 @@
 This is a fork of https://github.com/atomantic/dotfiles .
 I've customized it for my own personal preferences/use, adding some packages installs, and removing some.  Also fixing the 'showhiddenfiles' and 'hidehiddenfiles' commands to work more to my liking.
 
-# \\[._.]/ - Hi, I'm the OSX bot
+# \( ͡° ͜ʖ ͡°) - Hi, I'm the OSX bot
 
 I will update your OSX machine with better system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
 
@@ -11,14 +11,14 @@ You don't need to install or configure anything upfront! This works with a brand
 
 Don't you hate getting a new laptop or joining a new team and then spending a whole day setting up your system preferences and tools? Me too. That's why we automate; we did it once and we don't want to do have to do it again.
 
-\\[^_^]/ - This started as Adam Eivy's OSX shell configuration dotfiles but has grown to a mutil-developer platform for machine configuration.
+\( ͡° ͜ʖ ͡°) - This started as Adam Eivy's OSX shell configuration dotfiles but has grown to a mutil-developer platform for machine configuration.
 
 When I finish with your machine, you will be able to look at your command-line in full-screen mode like this (running iTerm):
 
 ![iTerm Screenshot](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/dotfiles.png)
 
 Check out how your shell prompt includes the full path & the working git branch!
-\\[._.]/ - I'm so excited I just binaried in my pants!
+\( ͡° ͜ʖ ͡°) - I'm so excited I just binaried in my pants!
 
 # Watch me run!
 ![Running](http://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif)
