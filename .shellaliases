@@ -38,7 +38,16 @@ alias to.devapps='cd ${MYDEVAPPS}'
 # Simple Program Name Shortening
 alias aq=aquamacs
 alias g=git
-
+alias gp='git push'
+alias gs='git status'
+alias gc='git commit -am'
+alias v=vagrant
+alias vp='vagrant provision'
+alias vd='vagrant destroy -f'
+alias k=kitchen
+alias kd='kitchen destroy'
+alias kc='kitchen converge'
+alias kl='kitchen login'
 
 #############################
 # Utilities
