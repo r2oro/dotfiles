@@ -17,3 +17,4 @@ source ~/.shellpaths
 source ~/.shellaliases
 # Private/Proprietary shell aliases (not to be checked into the public repo) :)
 #source ~/Dropbox/Private/Boxes/osx/.shellaliases
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
