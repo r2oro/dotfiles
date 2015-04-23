@@ -50,4 +50,9 @@ rbenv() {
 }
 
 # run fortune on new terminal :)
-fortune
+fortune | cowsay
+
+autoload -U zmv
+# you don't need the following two now, but put them also in your .zshrc
+alias zcp='zmv -C'
+alias zln='zmv -L'
