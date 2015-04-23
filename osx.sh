@@ -911,6 +911,7 @@ bot "Ruby Gems..."
 require_gem git-up
 require_gem kitchen-ec2
 require_gem aws-sdk-core
+require_gem lolcat
 
 ###############################################################################
 # Kill affected applications                                                  #
