@@ -911,6 +911,18 @@ require_gem git-up
 require_gem kitchen-ec2
 require_gem aws-sdk-core
 
+
+###############################################################################
+bot "Vagrant Plugins..."
+###############################################################################
+require_vagrant_plugin vagrant-aws
+require_vagrant_plugin vagrant-cachier
+require_vagrant_plugin vagrant-berkshelf
+require_vagrant_plugin vagrant-env
+require_vagrant_plugin vagrant-omnibus
+require_vagrant_plugin vagrant-proxyconf
+require_vagrant_plugin vagrant-share
+require_vagrant_plugin vagrant-triggers
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
