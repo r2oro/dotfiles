@@ -26,7 +26,7 @@ plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent clou
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.nvm/nvm.sh
+# source ~/.nvm/nvm.sh
 
 # Customize to your needs...
 unsetopt correct
@@ -50,4 +50,9 @@ rbenv() {
 }
 
 # run fortune on new terminal :)
-fortune
+fortune | cowsay | lolcat
+
+autoload -U zmv
+# you don't need the following two now, but put them also in your .zshrc
+alias zcp='zmv -C'
+alias zln='zmv -L'

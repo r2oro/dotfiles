@@ -95,6 +95,7 @@ require_brew boot2docker
 require_brew dos2unix
 # fortune command--I source this as a better motd :)
 require_brew fortune
+require_brew cowsay
 require_brew gawk
 # http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
 require_brew gifsicle
@@ -910,6 +911,7 @@ bot "Ruby Gems..."
 require_gem git-up
 require_gem kitchen-ec2
 require_gem aws-sdk-core
+require_gem lolcat
 
 
 ###############################################################################
