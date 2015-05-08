@@ -1,5 +1,19 @@
 #########################################
 # Utility Functions
+
+#will setup quick RDP tunnel for windows boxes in SCALR
+function rdp(){
+  echo "Please enter IP address of box to RDP into: "
+  read ipaddr
+  echo "You entered: $ipaddr"
+  port_no="9001"
+  echo "Localhost port # for RDP: $port_no"
+  ec2_jumpbox_ip="10.227.163.21"
+  echo "ec2 jumpbox IP address: $ec2_jumpbox_ip"
+  sudo ssh -L $port_no:$ipaddr:3389 ec2-user@$ec2_jumpbox_ip
+
+}
+
 function tempcred() {
 	#!/bin/bash
 #########################################################################
@@ -68,10 +82,10 @@ echo "Region set to $region"
 # This should find your SSO on a GE Mac
 #
 name_for_this_session=$(id | awk -F \( '{print $2}' | awk -F \) '{print $1}')
- 
+
 # how long will this token be valid for (min. 900, max. 3600)
 valid_seconds=${seconds:=3600}
- 
+
 # the ARN for the role for which temporary token is to be generated
 # format:
 # arn_for_the_role="arn:aws:iam::TARGET_ACCOUNT_NO:role/TARGET_ROLE_NAME"
@@ -79,7 +93,7 @@ arn_for_the_role="arn:aws:iam::${account_no}:role/${my_approved_role}"
 
 # optional: note the time at which keys were generated
 generated_at=$(date -u "+%Y-%m-%dT%H:%M:%S")
- 
+
 # call STS to get temporary creds
 temp_creds=$(aws sts assume-role \
                  --role-arn $arn_for_the_role \
@@ -92,15 +106,15 @@ temp_creds=$(aws sts assume-role \
 access_key_id=$(echo $temp_creds \
                 | jq '.Credentials.AccessKeyId' \
                 | sed -e 's/\"//g')
- 
+
 secret_access_key=$(echo $temp_creds \
                     | jq '.Credentials.SecretAccessKey' \
                     | sed -e 's/\"//g')
- 
+
 security_token=$(echo $temp_creds \
                  | jq '.Credentials.SessionToken' \
                  | sed -e 's/\"//g')
- 
+
 expires_at=$(echo $temp_creds \
              | jq '.Credentials.Expiration'\
              | sed -e 's/\"//g' -e 's/Z//')
