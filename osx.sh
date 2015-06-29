@@ -20,7 +20,7 @@ running "checking homebrew install"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
 	action "installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     if [[ $? != 0 ]]; then
     	error "unable to install homebrew, script $0 abort!"
     	exit -1
@@ -213,7 +213,7 @@ cp -r aws-tools ~/aws-tools
 running "Disable local Time Machine snapshots"
 sudo tmutil disablelocal;ok
 
-running "Disable hibernation (speeds up entering sleep mode)"
+running "Disable hibernation speeds up entering sleep mode"
 sudo pmset -a hibernatemode 0;ok
 
 running "Remove the sleep image file to save disk space"
@@ -230,7 +230,7 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 # Optional / Experimental                      #
 ################################################
 
-# running "Set computer name (as done via System Preferences → Sharing)"
+# running "Set computer name as done via System Preferences → Sharing"
 # sudo scutil --set ComputerName "antic"
 # sudo scutil --set HostName "antic"
 # sudo scutil --set LocalHostName "antic"
