@@ -5,18 +5,22 @@ export EDITOR='subl -w'
 ################################################
 #http environment variables
 ###############################################
-export HTTPS_PROXY=http://http-proxy.ha.health.ge.com:88
-export HTTP_PROXY=http://http-proxy.ha.health.ge.com:88
-export http_proxy=http://http-proxy.ha.health.ge.com:88
-export https_proxy=http://http-proxy.ha.health.ge.com:88
-
-export HTTP_PROXY_TEMP=http://http-proxy.ha.health.ge.com:88
-export HTTPS_PROXY_TEMP=http://http-proxy.ha.health.ge.com:88
+export export HTTP_PROXY_TEMP=http://3.20.109.241:88
+export HTTPS_PROXY_TEMP=http://3.20.109.241:88
 export NO_PROXY_TEMP=localhost,ge.com
+#export HTTPS_PROXY=http://http-proxy.ha.health.ge.com:88
+#export HTTP_PROXY=http://http-proxy.ha.health.ge.com:88
+#export http_proxy=http://http-proxy.ha.health.ge.com:88
+#export https_proxy=http://http-proxy.ha.health.ge.com:88
+export HTTPS_PROXY=$HTTPS_PROXY_TEMP
+export HTTP_PROXY=$NO_PROXY_TEMP
+export http_proxy=$HTTP_PROXY_TEMP
+export https_proxy=$HTTPS_PROXY_TEMP
+export VAGRANT_HTTP_PROXY=$HTTP_PROXY_TEMP
+export VAGRANT_HTTPS_PROXY=$HTTPS_PROXY_TEMP
+export VAGRANT_FTP_PROXY=$HTTP_PROXY_TEMP
+export VAGRANT_NO_PROXY=$NO_PROXY_TEMP
 
-export VPN_HTTP_PROXY_TEMP=http://cis-cinci-pitc-rest.proxy.corporate.gtm.ge.com:8080
-export VPN_HTTPS_PROXY_TEMP=http://cis-cinci-pitc-rest.proxy.corporate.gtm.ge.com:8080
-export VPN_NO_PROXY_TEMP=localhost,ge.com
 
 #########################################################################
 # Temporary aliases useful for demos, other current projects
