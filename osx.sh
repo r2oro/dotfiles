@@ -131,7 +131,7 @@ require_brew ttyrec
 require_brew vim --override-system-vi
 require_brew watch
 # Install wget with IRI support
-require_brew wget --enable-iri
+require_brew wget --with-iri
 
 bot "if you would like to start memcached at login, run this:"
 echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
