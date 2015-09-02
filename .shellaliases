@@ -48,7 +48,7 @@ alias k=kitchen
 alias kd='kitchen destroy'
 alias kc='kitchen converge'
 alias kl='kitchen login'
-
+alias ball='berks install && berks update && berks upload'
 #############################
 # Utilities
 
