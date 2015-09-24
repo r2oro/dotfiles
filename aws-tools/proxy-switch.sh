@@ -30,6 +30,11 @@ case "$1" in
             export https_proxy=$HTTPS_PROXY_TEMP
             export NO_PROXY=$NO_PROXY_TEMP
             export no_proxy=$NO_PROXY_TEMP
+            export VAGRANT_HTTP_PROXY=$HTTP_PROXY_TEMP
+            export VAGRANT_HTTPS_PROXY=$HTTP_PROXY_TEMP
+            export VAGRANT_FTP_PROXY=$HTTP_PROXY_TEMP
+            export VAGRANT_NO_PROXY=$NO_PROXY_TEMP
+
             ;;
 
         vpn_on)
@@ -41,6 +46,11 @@ case "$1" in
             export https_proxy=$VPN_HTTPS_PROXY_TEMP
             export NO_PROXY=$VPN_NO_PROXY_TEMP
             export no_proxy=$VPN_NO_PROXY_TEMP
+            export VAGRANT_HTTP_PROXY=$VPN_HTTP_PROXY_TEMP
+            export VAGRANT_HTTPS_PROXY=$VPN_HTTP_PROXY_TEMP
+            export VAGRANT_FTP_PROXY=$VPN_HTTP_PROXY_TEMP
+            export VAGRANT_NO_PROXY=$VPN_NO_PROXY_TEMP
+
             ;;
 
         off)
@@ -52,6 +62,9 @@ case "$1" in
             unset https_proxy
             unset NO_PROXY
             unset no_proxy
+            unset VAGRANT_HTTP_PROXY
+            unset VAGRANT_HTTPS_PROXY
+            unset VAGRANT_FTP_PROXY
             ;;
 
         *)
