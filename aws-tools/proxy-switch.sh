@@ -65,6 +65,7 @@ case "$1" in
             unset VAGRANT_HTTP_PROXY
             unset VAGRANT_HTTPS_PROXY
             unset VAGRANT_FTP_PROXY
+            unset VAGRANT_NO_PROXY
             ;;
 
         *)
