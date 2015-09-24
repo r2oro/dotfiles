@@ -40,15 +40,16 @@ alias aq=aquamacs
 alias g=git
 alias gp='git push'
 alias gs='git status'
-alias gc='git commit -am'
+alias gc='git commit'
 alias v=vagrant
 alias vp='vagrant provision'
 alias vd='vagrant destroy -f'
-alias k=kitchen
-alias kd='kitchen destroy'
-alias kc='kitchen converge'
-alias kl='kitchen login'
+alias k= 'chef exec kitchen'
+alias kd='chef exec kitchen destroy'
+alias kc='chef exec kitchen converge'
+alias kl='chef exec kitchen login'
 alias ball='berks install && berks update && berks upload'
+
 #############################
 # Utilities
 
