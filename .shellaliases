@@ -10,6 +10,9 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 # Turn proxies on/off
 #####################
 alias proxyon="source $AWS_TOOLS_PATH/proxy-switch.sh on"
+alias proxyon_myapps="source $AWS_TOOLS_PATH/proxy-switch.sh myapps"
+alias proxyon_pitc="source $AWS_TOOLS_PATH/proxy-switch.sh pitc"
+alias proxyon_health="source $AWS_TOOLS_PATH/proxy-switch.sh health"
 alias proxyoff="source $AWS_TOOLS_PATH/proxy-switch.sh off"
 alias vpn_proxyon="source $AWS_TOOLS_PATH/proxy-switch.sh vpn_on"
 #########################################
@@ -44,10 +47,11 @@ alias gc='git commit'
 alias v=vagrant
 alias vp='vagrant provision'
 alias vd='vagrant destroy -f'
-alias k= 'chef exec kitchen'
+alias k=kitchen
 alias kd='chef exec kitchen destroy'
 alias kc='chef exec kitchen converge'
 alias kl='chef exec kitchen login'
+alias klist='chef exec kitchen list'
 alias ball='berks install && berks update && berks upload'
 
 #############################

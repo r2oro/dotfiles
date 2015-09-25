@@ -68,6 +68,56 @@ case "$1" in
             unset VAGRANT_NO_PROXY
             ;;
 
+        myapps)
+            # Swap in the temp values
+            echo "Enabling proxy..."
+            export HTTP_PROXY="http://myapps.setpac.ge.com/pac.pac"
+            export http_proxy=$HTTP_PROXY
+            export HTTPS_PROXY=$HTTP_PROXY
+            export https_proxy=$HTTP_PROXY
+            export NO_PROXY=$NO_PROXY_TEMP
+            export no_proxy=$NO_PROXY_TEMP
+            export VAGRANT_HTTP_PROXY=$HTTP_PROXY
+            export VAGRANT_HTTPS_PROXY=$HTTP_PROXY
+            export VAGRANT_FTP_PROXY=$HTTP_PROXY
+            export VAGRANT_NO_PROXY=$HTTP_PROXY
+
+            ;;
+
+          pitc)
+              # Swap in the temp values
+              echo "Enabling proxy..."
+              export HTTP_PROXY="http://pitc-cin.cloud.health.ge.com:80"
+              export http_proxy=$HTTP_PROXY
+              export HTTPS_PROXY=$HTTP_PROXY
+              export https_proxy=$HTTP_PROXY
+              export NO_PROXY=$NO_PROXY_TEMP
+              export no_proxy=$NO_PROXY_TEMP
+              export VAGRANT_HTTP_PROXY=$HTTP_PROXY
+              export VAGRANT_HTTPS_PROXY=$HTTP_PROXY
+              export VAGRANT_FTP_PROXY=$HTTP_PROXY
+              export VAGRANT_NO_PROXY=$HTTP_PROXY
+
+              ;;
+
+          health)
+              # Swap in the temp values
+              echo "Enabling proxy..."
+              export HTTP_PROXY="http://http-proxy.ha.health.ge.com:88"
+              export http_proxy=$HTTP_PROXY
+              export HTTPS_PROXY=$HTTP_PROXY
+              export https_proxy=$HTTP_PROXY
+              export NO_PROXY=$NO_PROXY_TEMP
+              export no_proxy=$NO_PROXY_TEMP
+              export VAGRANT_HTTP_PROXY=$HTTP_PROXY
+              export VAGRANT_HTTPS_PROXY=$HTTP_PROXY
+              export VAGRANT_FTP_PROXY=$HTTP_PROXY
+              export VAGRANT_NO_PROXY=$HTTP_PROXY
+
+              ;;
+
+
+
         *)
             # Note: I use $BASH_SOURCE instead of $0 because I'm in a sourced script
             #       Also, the funky '##*/' is used to grab the field after the last slash,
