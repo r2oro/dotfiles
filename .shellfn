@@ -3,149 +3,16 @@
 
 #will setup quick RDP tunnel for windows boxes in SCALR
 function rdp(){
-  echo "Please enter IP address of box to RDP into: "
-  read ipaddr
-  echo "You entered: $ipaddr"
-  port_no="9001"
-  echo "Localhost port # for RDP: $port_no"
-  ec2_jumpbox_ip="10.227.163.21"
-  echo "ec2 jumpbox IP address: $ec2_jumpbox_ip"
-  sudo ssh -L $port_no:$ipaddr:3389 ec2-user@$ec2_jumpbox_ip
+echo "Please enter IP address of box to RDP into: "
+read ipaddr
+echo "You entered: $ipaddr"
+port_no="9001"
+echo "Localhost port # for RDP: $port_no"
+#ec2_jumpbox_ip="10.227.163.21"
+ec2_jumpbox_ip="10.227.167.92"
+echo "ec2 jumpbox IP address: $ec2_jumpbox_ip"
+ssh -L $port_no:$ipaddr:3389 gecloud@$ec2_jumpbox_ip
 
-}
-
-function tempcred() {
-	#!/bin/bash
-#########################################################################
-# $Id: tempcred,v 1.3 2015/03/09 20:20:11 208001083 Exp 208001083 $
-#
-# A Script to create temporary security tokens for AWS environments at
-# GE Healthcare
-# Created by Phil Scarr - $Author: 208001083 $
-#
-# This script assumes your personal AWS keys are in ~/.aws/credentials
-# under the [default] profile.
-#
-#########################################################################
-# Clear the deck
-#
-clear
-#
-# First unset all the environment variables
-#
-unset AWS_ACCESS_KEY_ID
-unset AWS_SECRET_ACCESS_KEY
-unset AWS_SECURITY_TOKEN
-unset AWS_DEFAULT_REGION
-
-echo "Which account?"
-options=("PreProd" "Prod" "Ireland" "Quit")
-select opt in "${options[@]}"
-do
-	case $opt in
-		"PreProd" )	account_no=164996153968;
-				region=us-east-1;break
-	 			;;
-		"Prod" )	account_no=901455435209;
-				region=us-east-1;break
-				;;
-		"Ireland" )	account_no=574616038232;
-				region=eu-west-1;break
-				;;
-		"Quit" ) exit 0;;
-		*) echo Invalid Option;;
-	esac
-done
-echo ""
-echo "Which role?"
-options=("bu-admin" "bu-poweruser" "bu-user" "Quit")
-select opt2 in "${options[@]}"
-do
-	case $opt2 in
-		"bu-admin" )	my_approved_role=bu-admin; break
-	 			;;
-		"bu-poweruser" )	my_approved_role=bu-poweruser; break
-				;;
-		"bu-user" )	my_approved_role=bu-user; break
-				;;
-		"Quit" ) exit 0;;
-		*) echo Invalid Option;;
-	esac
-done
-echo ""
-echo "Account set to $opt (Account $account_no)"
-echo "Role set to $my_approved_role"
-echo "Region set to $region"
-
-## customize the following variables
-
-# This should find your SSO on a GE Mac
-#
-name_for_this_session=$(id | awk -F \( '{print $2}' | awk -F \) '{print $1}')
-
-# how long will this token be valid for (min. 900, max. 3600)
-valid_seconds=${seconds:=3600}
-
-# the ARN for the role for which temporary token is to be generated
-# format:
-# arn_for_the_role="arn:aws:iam::TARGET_ACCOUNT_NO:role/TARGET_ROLE_NAME"
-arn_for_the_role="arn:aws:iam::${account_no}:role/${my_approved_role}"
-
-# optional: note the time at which keys were generated
-generated_at=$(date -u "+%Y-%m-%dT%H:%M:%S")
-
-# call STS to get temporary creds
-temp_creds=$(aws sts assume-role \
-                 --role-arn $arn_for_the_role \
-                 --role-session-name $name_for_this_session \
-                 --duration-seconds $valid_seconds \
-                 --profile default \
-                 --output json 2>/dev/null )
-
-# extract access and secret keys from response
-access_key_id=$(echo $temp_creds \
-                | jq '.Credentials.AccessKeyId' \
-                | sed -e 's/\"//g')
-
-secret_access_key=$(echo $temp_creds \
-                    | jq '.Credentials.SecretAccessKey' \
-                    | sed -e 's/\"//g')
-
-security_token=$(echo $temp_creds \
-                 | jq '.Credentials.SessionToken' \
-                 | sed -e 's/\"//g')
-
-expires_at=$(echo $temp_creds \
-             | jq '.Credentials.Expiration'\
-             | sed -e 's/\"//g' -e 's/Z//')
-
-#
-# Check to see if we got any data from aws command
-#
-if [ -z ${access_key_id} ]
-then
-	echo "Error processing your request"
-	echo "Could not set the Account / Role combination"
-	echo "Ensure you have access to the role $my_approved_role in account $opt."
-	 return 1
-fi
-
-echo "###############################################"
-echo "# Copy and Paste the following variables into #"
-echo "# your current shell.                         #"
-echo "###############################################"
-echo "#$aws_access_key_id generated at: $generated_at\n expiring at: $expires_at"
-echo "###############################################"
-echo ""
-echo "export AWS_ACCESS_KEY_ID=$access_key_id"
-echo "export AWS_SECRET_ACCESS_KEY=$secret_access_key"
-echo "export AWS_SECURITY_TOKEN=$security_token"
-echo "export AWS_DEFAULT_REGION=$region"
-echo ""
-Echo ""
-/usr/local/bin/aws configure set aws_access_key_id $access_key_id --profile temp
-/usr/local/bin/aws configure set aws_secret_access_key $secret_access_key --profile temp
-/usr/local/bin/aws configure set aws_security_token $security_token --profile temp
 
 }
 

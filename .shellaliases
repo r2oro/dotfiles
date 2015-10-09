@@ -52,7 +52,7 @@ alias kd='chef exec kitchen destroy'
 alias kc='chef exec kitchen converge'
 alias kl='chef exec kitchen login'
 alias klist='chef exec kitchen list'
-alias ball='berks install && berks update && berks upload'
+alias ball='berks install && berks upload'
 
 #############################
 # Utilities
