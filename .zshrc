@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
+export EDITOR="vim"
+export USE_EDITOR=$EDITOR
+export VISUAL=$EDITOR
 
 # Set name of the theme to load.
 # Look in $ZSH/themes/
