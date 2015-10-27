@@ -912,6 +912,7 @@ require_gem git-up
 require_gem kitchen-ec2
 require_gem aws-sdk-core
 require_gem lolcat
+require_gem knife-spork
 
 
 ###############################################################################
