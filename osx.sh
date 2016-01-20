@@ -161,7 +161,7 @@ require_cask slack
 #require_cask comicbooklover
 require_cask diffmerge
 #require_cask flash-player
-require_cask github
+require_cask github-desktop
 require_cask gpgtools
 require_cask ireadfast
 require_cask iterm2
