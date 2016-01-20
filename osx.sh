@@ -163,7 +163,6 @@ require_cask diffmerge
 #require_cask flash-player
 require_cask github-desktop
 require_cask gpgtools
-require_cask ireadfast
 require_cask iterm2
 require_cask dashlane
 #require_cask macvim
