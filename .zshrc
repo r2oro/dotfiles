@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
-export EDITOR="vim"
+export EDITOR="atom -w"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
@@ -8,7 +8,7 @@ export VISUAL=$EDITOR
 # Look in $ZSH/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="pygmalion"
+export ZSH_THEME="ys"
 #export ZSH_THEME="random"
 
 # Set to this to use case-sensitive completion
@@ -25,7 +25,7 @@ export CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent cloudapp colorize)
+plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent cloudapp colorize osx)
 
 source $ZSH/oh-my-zsh.sh
 
