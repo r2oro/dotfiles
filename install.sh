@@ -134,3 +134,6 @@ popd > /dev/null 2>&1
 ./osx.sh
 
 bot "Woot! All done."
+
+#TODO FIX THESE ERRORS fatal: Unable to look up github.com (port 9418) (nodename nor servname provided, or not known)
+#fatal: clone of 'git://github.com/robbyrussell/oh-my-zsh.git' into submodule path 'oh-my-zsh' failed
