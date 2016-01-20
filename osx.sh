@@ -155,7 +155,7 @@ require_cask evernote
 
 # communication
 #require_cask adium
-require_cask slack
+# require_cask slack
 
 # tools
 #require_cask comicbooklover
