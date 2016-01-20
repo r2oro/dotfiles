@@ -53,7 +53,8 @@ unsetopt correct
 # }
 
 # run fortune on new terminal :)
-fortune | cowsay | lolcat
+# fortune | cowsay | lolcat
+fortune | cowsay
 
 autoload -U zmv
 # you don't need the following two now, but put them also in your .zshrc
