@@ -71,7 +71,7 @@ function require_gem() {
     running "gem $1"
     if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) != $1 ]];
         then
-            action "gem install $1"
+            action "sudo gem install $1"
             gem install $1
     fi
     ok
