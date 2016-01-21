@@ -5,10 +5,10 @@
 # @author Adam Eivy
 ###########################
 
-DEFAULT_EMAIL="atomantic@gmail.com"
-DEFAULT_GITHUBUSER="atomantic"
-DEFAULT_NAME="Adam Eivy"
-DEFAULT_USERNAME="antic"
+DEFAULT_EMAIL="josh.schneider@ge.com"
+DEFAULT_GITHUBUSER="212050466"
+DEFAULT_NAME="Josh Schneider"
+DEFAULT_USERNAME="joshoohaah"
 
 
 # include my library helpers for colorized echo and require_brew, etc
@@ -133,7 +133,7 @@ symlinkifne .zshrc
 
 popd > /dev/null 2>&1
 
-./test.sh
+# ./test.sh
 ./osx.sh
 
 bot "Woot! All done."
