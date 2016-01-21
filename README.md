@@ -1,5 +1,9 @@
-This is a fork of https://github.com/atomantic/dotfiles .
-I've customized it for my own personal preferences/use, adding some packages installs, and removing some.  Also fixing the 'showhiddenfiles' and 'hidehiddenfiles' commands to work more to my liking.
+# How to Install
+```bash
+git clone --recurse-submodules https://github.com/joshoohaah/dotfiles ~/.dotfiles
+cd ~/.dotfiles;
+./install.sh;
+```
 
 # \( ͡° ͜ʖ ͡°) - Hi, I'm the OSX bot
 
@@ -256,4 +260,3 @@ Please refer to the [Contributor Covenant](https://github.com/atomantic/dotfiles
  * Added dotfiles backup and restore.sh script
      * you can now restore your previous dotfiles with ./restore.sh
  * prompting the user more (e.g. `brew upgrade` is now optional)
-
