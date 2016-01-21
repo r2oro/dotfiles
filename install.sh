@@ -5,6 +5,11 @@
 # @author Adam Eivy
 ###########################
 
+DEFAULT_EMAIL="atomantic@gmail.com"
+DEFAULT_GITHUBUSER="atomantic"
+DEFAULT_NAME="Adam Eivy"
+DEFAULT_USERNAME="antic"
+
 
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib.sh
@@ -17,10 +22,20 @@ fi
 bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
 
 fullname=`osascript -e "long user name of (system info)"`
-me=`dscl . -read /Users/$(whoami)`
 
-lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
-firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
+if [[ -n "$fullname" ]];then
+  lastname=$(echo $fullname | awk '{print $2}');
+  firstname=$(echo $fullname | awk '{print $1}');
+fi
+
+# me=`dscl . -read /Users/$(whoami)`
+
+if [[ -z $lastname ]]; then
+  lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
+fi
+if [[ -z $firstname ]]; then
+  firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
+fi
 email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
 
 if [[ ! "$firstname" ]];then
@@ -31,8 +46,8 @@ else
 fi
 
 if [[ $response =~ ^(no|n|N) ]];then
-	read -r -p "What is your first name? " firstname
-	read -r -p "What is your last name? " lastname
+  read -r -p "What is your first name? " firstname
+  read -r -p "What is your last name? " lastname
 fi
 fullname="$firstname $lastname"
 
@@ -46,29 +61,38 @@ else
 fi
 
 if [[ $response =~ ^(no|n|N) ]];then
-	read -r -p "What is your email? " email
+  read -r -p "What is your email? [$DEFAULT_EMAIL] " email
+  if [[ ! $email ]];then
+    email=$DEFAULT_EMAIL
+  fi
 fi
 
-read -r -p "What is your github.com username? " githubuser
+grep 'user = atomantic' .gitconfig
+if [[ $? = 0 ]]; then
+    read -r -p "What is your github.com username? [$DEFAULT_GITHUBUSER]" githubuser
+fi
+if [[ ! $githubuser ]];then
+  githubuser=$DEFAULT_GITHUBUSER
+fi
 
 running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
 
 # test if gnu-sed or osx sed
 
-sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
+sed -i 's/'$DEFAULT_NAME'/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
   echo
   running "looks like you are using OSX sed rather than gnu-sed, accommodating"
-  sed -i '' 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
-  sed -i '' 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  sed -i '' 's/atomantic/'$githubuser'/' .gitconfig;
-  sed -i '' 's/antic/'$(whoami)'/g' .zshrc;ok
+  sed -i '' 's/'$DEFAULT_NAME'/'$firstname' '$lastname'/' .gitconfig;
+  sed -i '' 's/'$DEFAULT_EMAIL'/'$email'/' .gitconfig;
+  sed -i '' 's/'$DEFAULT_GITHUBUSER'/'$githubuser'/' .gitconfig;
+  sed -i '' 's/'$DEFAULT_USERNAME'/'$(whoami)'/g' .zshrc;ok
 else
   echo
   bot "looks like you are already using gnu-sed. woot!"
-  sed -i 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  sed -i 's/atomantic/'$githubuser'/' .gitconfig;
-  sed -i 's/antic/'$(whoami)'/g' .zshrc;ok
+  sed -i 's/'$DEFAULT_EMAIL'/'$email'/' .gitconfig;
+  sed -i 's/'$DEFAULT_GITHUBUSER'/'$githubuser'/' .gitconfig;
+  sed -i 's/'$DEFAULT_USERNAME'/'$(whoami)'/g' .zshrc;ok
 fi
 
 # read -r -p "OK? [Y/n] " response
@@ -80,34 +104,13 @@ fi
 
 echo $0 | grep zsh > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
-	running "changing your login shell to zsh"
-	chsh -s $(which zsh);ok
+  running "changing your login shell to zsh"
+  chsh -s $(which zsh);ok
 else
-	bot "looks like you are already using zsh. woot!"
+  bot "looks like you are already using zsh. woot!"
 fi
 
 pushd ~ > /dev/null 2>&1
-
-function symlinkifne {
-    running "$1"
-
-    if [[ -e $1 ]]; then
-        # file exists
-        if [[ -L $1 ]]; then
-            # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
-            return
-        fi
-        # backup file does not exist yet
-        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
-            mv $1 ~/.dotfiles_backup/
-            echo -en 'backed up saved...';
-        fi
-    fi
-    # create the link
-    ln -s ~/.dotfiles/$1 $1
-    echo -en 'linked';ok
-}
 
 bot "creating symlinks for project dotfiles..."
 
@@ -116,7 +119,6 @@ symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore
 symlinkifne .profile
-symlinkifne .rvmrc
 symlinkifne .screenrc
 symlinkifne .shellaliases
 symlinkifne .shellfn
@@ -134,6 +136,9 @@ popd > /dev/null 2>&1
 ./osx.sh
 
 bot "Woot! All done."
+<<<<<<< HEAD
 
 #TODO FIX THESE ERRORS fatal: Unable to look up github.com (port 9418) (nodename nor servname provided, or not known)
 #fatal: clone of 'git://github.com/robbyrussell/oh-my-zsh.git' into submodule path 'oh-my-zsh' failed
+=======
+>>>>>>> upstream/master

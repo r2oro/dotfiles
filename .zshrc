@@ -25,15 +25,25 @@ export CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
+<<<<<<< HEAD
 plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent cloudapp colorize osx)
 
 source $ZSH/oh-my-zsh.sh
 
 # source ~/.nvm/nvm.sh
+=======
+plugins=(brew colorize compleat dirpersist gem git git-flow osx node npm nvm rvm ssh-agent)
+
+source $ZSH/oh-my-zsh.sh
+
+export NVM_DIR=~/.nvm
+source /usr/local/opt/nvm/nvm.sh
+>>>>>>> upstream/master
 
 # Customize to your needs...
 unsetopt correct
 
+<<<<<<< HEAD
 # export PATH="/Users/antic/.rbenv/shims:${PATH}"
 # source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
 # rbenv rehash 2>/dev/null
@@ -52,6 +62,9 @@ unsetopt correct
 #   esac
 # }
 
+=======
+nvm use stable
+>>>>>>> upstream/master
 # run fortune on new terminal :)
 # fortune | cowsay | lolcat
 fortune | cowsay

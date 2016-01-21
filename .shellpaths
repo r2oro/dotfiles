@@ -6,6 +6,7 @@ export PATH=$PATH:.
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
+<<<<<<< HEAD
 #MacPorts
 ## NOTE: switched to HomeBrew :)
 ## Having MacPorts first instead of after $PATH causes a GitK error
@@ -30,3 +31,7 @@ export PATH=$PATH:/usr/local/share/npm/bin
 
 export PATH=$PATH:~/.nvm/v0.10.22/bin
 RBENV_ROOT=/usr/local/var/rbenv
+=======
+# GO
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+>>>>>>> upstream/master
