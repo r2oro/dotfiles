@@ -137,28 +137,19 @@ require_brew gnu-sed --default-names
 require_brew go
 # better, more recent grep
 require_brew homebrew/dupes/grep
-<<<<<<< HEAD
-require_brew hub
-=======
-require_brew imagemagick
-require_brew imagesnap
->>>>>>> upstream/master
 # jq is a JSON grep
 require_brew jq
 # http://maven.apache.org/
 # require_brew maven
 require_brew nmap
-<<<<<<< HEAD
 require_brew node
 require_brew putty
 #polipo lets you cache files quick on your machine so vagrant spins up boxes quicker.
 require_brew polipo
 require_brew redis
-=======
 # require_brew node
 require_brew nvm
 require_brew ruby
->>>>>>> upstream/master
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
 require_brew tree
@@ -176,30 +167,30 @@ require_nvm stable
 bot "NPM Globals..."
 ###############################################################################
 
-require_npm antic
-require_npm buzzphrase
-require_npm bower
-require_npm bower-check-updates
-require_npm npm-check
-# http://ionicframework.com/
-# require_npm cordova
-# require_npm ionic
-require_npm yo
-# https://github.com/markdalgleish/bespoke.js
-require_npm generator-bespoke
-require_npm generator-dockerize
-# require_npm grunt
-require_npm gulp
-require_npm eslint
-# NOTE: now using PM2 and forever in docker containers (not in host)
-# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
-# require_npm pm2
-require_npm prettyjson
-# require_npm supervisor
-# https://github.com/sindresorhus/trash
-require_npm trash
-# https://github.com/MrRio/vtop
-require_npm vtop
+# require_npm antic
+# require_npm buzzphrase
+# require_npm bower
+# require_npm bower-check-updates
+# require_npm npm-check
+# # http://ionicframework.com/
+# # require_npm cordova
+# # require_npm ionic
+# require_npm yo
+# # https://github.com/markdalgleish/bespoke.js
+# require_npm generator-bespoke
+# require_npm generator-dockerize
+# # require_npm grunt
+# require_npm gulp
+# require_npm eslint
+# # NOTE: now using PM2 and forever in docker containers (not in host)
+# # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
+# # require_npm pm2
+# require_npm prettyjson
+# # require_npm supervisor
+# # https://github.com/sindresorhus/trash
+# require_npm trash
+# # https://github.com/MrRio/vtop
+# require_npm vtop
 
 ###############################################################################
 bot "Ruby Gems..."
@@ -222,12 +213,7 @@ require_cask atom
 require_cask box-sync
 require_cask colloquy
 #require_cask dropbox
-<<<<<<< HEAD
 require_cask evernote
-#require_cask skydrive
-=======
-#require_cask evernote
->>>>>>> upstream/master
 
 # communication
 #require_cask adium
@@ -238,33 +224,20 @@ require_cask flowdock
 #require_cask comicbooklover
 require_cask diffmerge
 #require_cask flash-player
-<<<<<<< HEAD
 require_cask github-desktop
 require_cask gpgtools
 require_cask iterm2
 require_cask dashlane
-=======
-require_cask gpgtools
-# require_cask ireadfast
-require_cask iterm2
->>>>>>> upstream/master
 #require_cask macvim
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
-<<<<<<< HEAD
 require_cask spectacle
 require_cask sublime-text3
 require_cask the-unarchiver
-=======
 
 require_cask atom
-# require_apm linter
-# require_apm linter-eslint
-# require_apm atom-beautify
 
-# require_cask the-unarchiver
->>>>>>> upstream/master
 #require_cask transmission
 # require_cask vlc
 require_cask xquartz
@@ -274,26 +247,33 @@ require_cask xquartz
 # require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
-<<<<<<< HEAD
-require_cask google-chrome-canary
-=======
-# require_cask google-chrome-canary
-# require_cask torbrowser
->>>>>>> upstream/master
 
 # virtal machines
-# require_cask virtualbox
+require_cask virtualbox
 # chef-dk, berkshelf, etc
-#require_cask chefdk
+require_cask chefdk
 # vagrant for running dev environments using docker images
-#require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
-
-
+require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
 # bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
-# brew cleanup > /dev/null 2>&1
-# bot "All clean"
+brew cleanup > /dev/null 2>&1
+bot "All clean"
+###############################################################################
+bot "adding in Atom configuration modules"
+###############################################################################
+# require_apm linter-eslint
+require_apm atom-beautify
+require_apm atom-alignment
+require_apm bracket-close-jump
+require_apm fancy-bracket-matcher
+require_apm jsonlint
+require_apm language-chef
+require_apm language-powershell
+require_apm line-ending-converter
+require_apm linter
+require_apm tree-view-git-status
+
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
@@ -953,7 +933,6 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 running "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
-<<<<<<< HEAD
 ###############################################################################
 bot "Sublime Text"
 ###############################################################################
@@ -979,31 +958,31 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.polipo.plist
 
 
 ###############################################################################
-bot "NPM Globals..."
-###############################################################################
-
-require_npm antic
-require_npm bower
-# http://ionicframework.com/
-require_npm cordova
-require_npm ionic
-# https://github.com/markdalgleish/bespoke.js
-require_npm generator-bespoke
-require_npm grunt
-require_npm gulp
-require_npm jshint
-# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
-require_npm pm2
-require_npm prettyjson
-require_npm supervisor
-# https://github.com/sindresorhus/trash
-require_npm trash
-# https://github.com/MrRio/vtop
-require_npm vtop
-require_npm yo
-
-require_npm interfacelift-downloader
-require_npm rally-app-builder
+# bot "NPM Globals..."
+# ###############################################################################
+#
+# require_npm antic
+# require_npm bower
+# # http://ionicframework.com/
+# require_npm cordova
+# require_npm ionic
+# # https://github.com/markdalgleish/bespoke.js
+# require_npm generator-bespoke
+# require_npm grunt
+# require_npm gulp
+# require_npm jshint
+# # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
+# require_npm pm2
+# require_npm prettyjson
+# require_npm supervisor
+# # https://github.com/sindresorhus/trash
+# require_npm trash
+# # https://github.com/MrRio/vtop
+# require_npm vtop
+# require_npm yo
+#
+# require_npm interfacelift-downloader
+# require_npm rally-app-builder
 
 ###############################################################################
 bot "Ruby Gems..."
@@ -1013,9 +992,6 @@ require_gem kitchen-ec2
 require_gem aws-sdk-core
 require_gem lolcat
 require_gem knife-spork
-
-=======
->>>>>>> upstream/master
 
 ###############################################################################
 bot "Vagrant Plugins..."
@@ -1033,13 +1009,7 @@ require_vagrant_plugin vagrant-triggers
 ###############################################################################
 bot "OK. Note that some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-<<<<<<< HEAD
-	"Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-	"iCal" "Terminal"; do
-	killall "${app}" > /dev/null 2>&1
-=======
   "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
   "iCal" "Terminal"; do
   killall "${app}" > /dev/null 2>&1
->>>>>>> upstream/master
 done

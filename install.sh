@@ -133,12 +133,7 @@ symlinkifne .zshrc
 
 popd > /dev/null 2>&1
 
+./test.sh
 ./osx.sh
 
 bot "Woot! All done."
-<<<<<<< HEAD
-
-#TODO FIX THESE ERRORS fatal: Unable to look up github.com (port 9418) (nodename nor servname provided, or not known)
-#fatal: clone of 'git://github.com/robbyrussell/oh-my-zsh.git' into submodule path 'oh-my-zsh' failed
-=======
->>>>>>> upstream/master
