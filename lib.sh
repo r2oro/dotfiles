@@ -88,6 +88,25 @@ function require_npm() {
     ok
 }
 
+function require_node(){
+    running "node -v"
+    node -v
+    if [[ $? != 0 ]]; then
+        action "node not found, installing via homebrew"
+        brew install node
+    fi
+    ok
+}
+
+function require_apm() {
+    running "checking atom plugin: $1"
+    apm list --installed --bare | grep $1@ > /dev/null
+    if [[ $? != 0 ]]; then
+        action "apm install $1"
+        apm install $1
+    fi
+    ok
+}
 
 function require_vagrant_plugin() {
     running "vagrant plugin $1"
@@ -115,4 +134,24 @@ function require_vagrant_plugin() {
             fi
     fi
     ok
+}
+function symlinkifne {
+    running "$1"
+
+    if [[ -e $1 ]]; then
+        # file exists
+        if [[ -L $1 ]]; then
+            # it's already a simlink (could have come from this project)
+            echo -en '\tsimlink exists, skipped\t';ok
+            return
+        fi
+        # backup file does not exist yet
+        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
+            mv $1 ~/.dotfiles_backup/
+            echo -en 'backed up saved...';
+        fi
+    fi
+    # create the link
+    ln -s ~/.dotfiles/$1 $1
+    echo -en '\tlinked';ok
 }

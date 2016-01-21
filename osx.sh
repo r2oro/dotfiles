@@ -4,13 +4,34 @@
 source ./lib.sh
 
 # Ask for the administrator password upfront
-bot "I need you to enter your sudo password so I can install some things:"
-sudo -v
+# Ask for the administrator password upfront
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+bot "checking sudo state..."
+if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 
-bot "OK, let's roll..."
+  # Ask for the administrator password upfront
+  bot "I need you to enter your sudo password so I can install some things:"
+  sudo -v
+
+  # Keep-alive: update existing sudo time stamp until the script has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+  bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
+
+  read -r -p "Make sudo passwordless? [y|N] " response
+
+  if [[ $response =~ (yes|y|Y) ]];then
+      sed --version 2>&1 > /dev/null
+      if [[ $? == 0 ]];then
+          sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+      else
+          sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+      fi
+      sudo dscl . append /Groups/wheel GroupMembership $(whoami)
+      bot "You can now run sudo commands without password!"
+  fi
+fi
+ok
 
 #####
 # install homebrew
@@ -87,9 +108,9 @@ require_brew ack
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.beanstalk.plist
 
 # docker setup:
-require_brew fig
-require_brew docker
-require_brew boot2docker
+# require_brew fig
+# require_brew docker
+# require_brew boot2docker
 
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
@@ -105,6 +126,7 @@ require_brew git
 require_brew git-flow
 # why is everyone still not using GPG?
 
+require_brew ruby
 require_brew rbenv
 require_brew ruby-build
 require_brew gnupg
@@ -113,12 +135,11 @@ require_brew gnupg
 require_brew gnu-sed --default-names
 # better, more recent grep
 require_brew homebrew/dupes/grep
-require_brew hub
+# require_brew hub
 # jq is a JSON grep
 require_brew jq
 # http://maven.apache.org/
-require_brew maven
-require_brew memcached
+# require_brew maven
 require_brew nmap
 require_brew node
 require_brew putty
@@ -127,7 +148,6 @@ require_brew polipo
 require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
-require_brew tig
 require_brew tree
 require_brew ttyrec
 # better, more recent vim
@@ -135,11 +155,6 @@ require_brew vim --override-system-vi
 require_brew watch
 # Install wget with IRI support
 require_brew wget --with-iri
-
-bot "if you would like to start memcached at login, run this:"
-echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
-bot "if you would like to start memcached now, run this:"
-echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
@@ -175,17 +190,17 @@ require_cask sizeup
 #require_cask sketchup
 require_cask spectacle
 require_cask sublime-text3
-require_cask the-unarchiver
+# require_cask the-unarchiver
 #require_cask transmission
-require_cask vlc
+# require_cask vlc
 require_cask xquartz
 
 # development browsers
-require_cask breach
+# require_cask breach
 require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
-require_cask google-chrome-canary
+# require_cask google-chrome-canary
 
 # virtal machines
 require_cask virtualbox
@@ -873,6 +888,21 @@ running "Atom Proxy settings"
 cp -r configs/.apmrc ~/.atom/.apmrc 2> /dev/null;ok
 
 ###############################################################################
+bot "adding in Atom configuration modules"
+###############################################################################
+# require_apm linter-eslint
+require_apm atom-beautify
+require_apm atom-alignment
+require_apm bracket-close-jump
+require_apm fancy-bracket-matcher
+require_apm jsonlint
+require_apm language-chef
+require_apm language-powershell
+require_apm line-ending-converter
+require_apm linter
+require_apm tree-view-git-status
+
+###############################################################################
 bot "Polipo"
 ###############################################################################
 
@@ -881,36 +911,37 @@ ln -sfv /usr/local/opt/polipo/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.polipo.plist
 
 
-###############################################################################
-bot "NPM Globals..."
-###############################################################################
-
-require_npm antic
-require_npm bower
-# http://ionicframework.com/
-require_npm cordova
-require_npm ionic
-# https://github.com/markdalgleish/bespoke.js
-require_npm generator-bespoke
-require_npm grunt
-require_npm gulp
-require_npm jshint
-# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
-require_npm pm2
-require_npm prettyjson
-require_npm supervisor
-# https://github.com/sindresorhus/trash
-require_npm trash
-# https://github.com/MrRio/vtop
-require_npm vtop
-require_npm yo
-
-require_npm interfacelift-downloader
-require_npm rally-app-builder
-
+# ###############################################################################
+# bot "NPM Globals..."
+# ###############################################################################
+#
+# require_npm antic
+# require_npm bower
+# # http://ionicframework.com/
+# require_npm cordova
+# require_npm ionic
+# # https://github.com/markdalgleish/bespoke.js
+# require_npm generator-bespoke
+# require_npm grunt
+# require_npm gulp
+# require_npm jshint
+# # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
+# require_npm pm2
+# require_npm prettyjson
+# require_npm supervisor
+# # https://github.com/sindresorhus/trash
+# require_npm trash
+# # https://github.com/MrRio/vtop
+# require_npm vtop
+# require_npm yo
+#
+# require_npm interfacelift-downloader
+# require_npm rally-app-builder
+#
 ###############################################################################
 bot "Ruby Gems..."
 ###############################################################################
+sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
 require_gem git-up
 require_gem kitchen-ec2
 require_gem aws-sdk-core

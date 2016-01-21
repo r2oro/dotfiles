@@ -1,9 +1,9 @@
 [user]
-	name = Adam Eivy
-	email = atomantic@gmail.com
+	name = 212050466
+	email = josh.schneider@ge.com
 [github]
     # https://github.com/blog/180-local-github-config
-    user = atomantic
+    user = joshoohaah
 
     # in a few months, look into the include directive (after bug fixes)
     token = MOVEALONG
