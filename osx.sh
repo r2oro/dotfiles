@@ -891,7 +891,6 @@ cp -r configs/.apmrc ~/.atom/.apmrc 2> /dev/null;ok
 bot "adding in Atom configuration modules"
 ###############################################################################
 # require_apm linter-eslint
-require_apm atom-beautify
 require_apm atom-alignment
 require_apm bracket-close-jump
 require_apm fancy-bracket-matcher
@@ -901,6 +900,7 @@ require_apm language-powershell
 require_apm line-ending-converter
 require_apm linter
 require_apm tree-view-git-status
+require_apm atom-beautify
 
 ###############################################################################
 bot "Polipo"
