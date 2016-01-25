@@ -5,6 +5,7 @@ source ./lib.sh
 bot "Vagrant Plugins..."
 ###############################################################################
 sudo chmod go-w /usr/local/bin
+sudo chmod go-w /usr/local
 
 require_vagrant_plugin vagrant-aws
 require_vagrant_plugin vagrant-cachier
