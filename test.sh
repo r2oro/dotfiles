@@ -14,6 +14,7 @@ require_vagrant_plugin vagrant-omnibus
 require_vagrant_plugin vagrant-proxyconf
 require_vagrant_plugin vagrant-share
 require_vagrant_plugin vagrant-triggers
+require_vagrant_plugin vagrant-winrm
 
 ###############################################################################
 bot "adding in Atom configuration modules"

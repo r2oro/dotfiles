@@ -952,6 +952,9 @@ require_gem knife-spork
 ###############################################################################
 bot "Vagrant Plugins..."
 ###############################################################################
+
+sudo chmod go-w /usr/local/bin
+
 require_vagrant_plugin vagrant-aws
 require_vagrant_plugin vagrant-cachier
 require_vagrant_plugin vagrant-berkshelf
@@ -960,6 +963,8 @@ require_vagrant_plugin vagrant-omnibus
 require_vagrant_plugin vagrant-proxyconf
 require_vagrant_plugin vagrant-share
 require_vagrant_plugin vagrant-triggers
+require_vagrant_plugin vagrant-winrm
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
