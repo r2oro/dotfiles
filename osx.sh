@@ -204,6 +204,7 @@ require_cask google-chrome
 
 # virtal machines
 require_cask virtualbox
+require_cask virtualbox-extension-pack
 # chef-dk, berkshelf, etc
 require_cask chefdk
 # vagrant for running dev environments using docker images
