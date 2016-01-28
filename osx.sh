@@ -127,8 +127,8 @@ require_brew git-flow
 # why is everyone still not using GPG?
 
 require_brew ruby
-require_brew rbenv
-require_brew ruby-build
+# require_brew rbenv
+# require_brew ruby-build
 require_brew gnupg
 # Install GNU `sed`, overwriting the built-in `sed`
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
