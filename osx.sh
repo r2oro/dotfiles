@@ -168,7 +168,7 @@ require_cask atom
 require_cask box-sync
 require_cask colloquy
 #require_cask dropbox
-require_cask evernote
+# require_cask evernote
 #require_cask skydrive
 
 # communication
@@ -215,15 +215,16 @@ bot "Alright, cleaning up homebrew cache..."
 brew cleanup > /dev/null 2>&1
 bot "All clean"
 
+################################################
+bot "aws/proxy setup"                     #
+################################################
+running "Copying AWS-tools"
+cp -r aws-tools ~/aws-tools
+
 ###############################################################################
 bot "Configuring General System UI/UX..."
 ###############################################################################
 
-################################################
-# aws/proxy setup                     #
-################################################
-running "Copying AWS-tools"
-cp -r aws-tools ~/aws-tools
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -620,28 +621,28 @@ running "Add iOS Simulator to Launchpad"
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app";ok
 
 
-bot "Configuring Hot Corners"
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-
-running "Top left screen corner → Launchpad"
-defaults write com.apple.dock wvous-tl-corner -int 7
-defaults write com.apple.dock wvous-tl-modifier -int 0;ok
-running "Top right screen corner → Desktop"
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0;ok
-running "Bottom right screen corner → Start screen saver"
-defaults write com.apple.dock wvous-br-corner -int 5
-defaults write com.apple.dock wvous-br-modifier -int 0;ok
+# bot "Configuring Hot Corners"
+# # Possible values:
+# #  0: no-op
+# #  2: Mission Control
+# #  3: Show application windows
+# #  4: Desktop
+# #  5: Start screen saver
+# #  6: Disable screen saver
+# #  7: Dashboard
+# # 10: Put display to sleep
+# # 11: Launchpad
+# # 12: Notification Center
+#
+# running "Top left screen corner → Launchpad"
+# defaults write com.apple.dock wvous-tl-corner -int 7
+# defaults write com.apple.dock wvous-tl-modifier -int 0;ok
+# running "Top right screen corner → Desktop"
+# defaults write com.apple.dock wvous-tr-corner -int 4
+# defaults write com.apple.dock wvous-tr-modifier -int 0;ok
+# running "Bottom right screen corner → Start screen saver"
+# defaults write com.apple.dock wvous-br-corner -int 5
+# defaults write com.apple.dock wvous-br-modifier -int 0;ok
 
 ###############################################################################
 bot "Configuring Safari & WebKit"

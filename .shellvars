@@ -5,8 +5,8 @@ export EDITOR='atom -w'
 ################################################
 #http environment variables
 ###############################################
-export HTTP_PROXY_TEMP=http://3.20.109.241:88
-export HTTPS_PROXY_TEMP=http://3.20.109.241:88
+export HTTP_PROXY_TEMP=http://3.20.109.241:88/
+export HTTPS_PROXY_TEMP=http://3.20.109.241:88/
 export NO_PROXY_TEMP=localhost,ge.com
 #export HTTPS_PROXY=http://http-proxy.ha.health.ge.com:88
 #export HTTP_PROXY=http://http-proxy.ha.health.ge.com:88
