@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 
 source ./lib.sh
+
+###############################################################################
+bot "Ruby Gems..."
+###############################################################################
+sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
+sudo chown -R $(whoami) /usr/local/lib/ruby/gems/2.3.0
+require_gem git-up
+require_gem kitchen-ec2
+require_gem aws-sdk-core
+require_gem lolcat
+require_gem knife-spork
+
+
 ###############################################################################
 bot "Vagrant Plugins..."
 ###############################################################################
