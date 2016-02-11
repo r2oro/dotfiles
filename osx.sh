@@ -200,7 +200,8 @@ require_cask xquartz
 require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
-# require_cask google-chrome-canary
+require_cask cord
+require_cask rcdefaultapp
 
 # virtal machines
 require_cask virtualbox
