@@ -903,6 +903,9 @@ require_apm language-powershell
 require_apm line-ending-converter
 require_apm linter
 require_apm tree-view-git-status
+require_apm todo-show
+require_apm open-recent
+require_apm highlight-selected
 require_apm atom-beautify
 
 ###############################################################################
