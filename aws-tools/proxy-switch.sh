@@ -87,7 +87,7 @@ case "$1" in
           pitc)
               # Swap in the temp values
               echo "Enabling proxy..."
-              export HTTP_PROXY="http://pitc-cin.cloud.health.ge.com:80"
+              export HTTP_PROXY="http://pitc-cin.cloud.health.ge.com:80/"
               export http_proxy=$HTTP_PROXY
               export HTTPS_PROXY=$HTTP_PROXY
               export https_proxy=$HTTP_PROXY
@@ -103,7 +103,7 @@ case "$1" in
           health)
               # Swap in the temp values
               echo "Enabling proxy..."
-              export HTTP_PROXY="http://http-proxy.ha.health.ge.com:88"
+              export HTTP_PROXY="http://http-proxy.ha.health.ge.com:88/"
               export http_proxy=$HTTP_PROXY
               export HTTPS_PROXY=$HTTP_PROXY
               export https_proxy=$HTTP_PROXY
