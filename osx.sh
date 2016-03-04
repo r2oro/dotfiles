@@ -953,7 +953,7 @@ require_gem kitchen-ec2
 require_gem aws-sdk-core
 require_gem lolcat
 require_gem knife-spork
-
+require_gem lolcommits
 
 ###############################################################################
 bot "Vagrant Plugins..."
