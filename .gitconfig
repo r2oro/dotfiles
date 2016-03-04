@@ -193,7 +193,6 @@
 	clean = expand -t 4
 	[http]
 		sslVerify = false
-		proxy = http://3.20.109.241:88
 [push]
 	default = matching
 [filter "media"]
