@@ -141,11 +141,11 @@ require_brew jq
 # http://maven.apache.org/
 # require_brew maven
 require_brew nmap
-require_brew node
+# require_brew node
 require_brew putty
 #polipo lets you cache files quick on your machine so vagrant spins up boxes quicker.
 require_brew polipo
-require_brew redis
+# require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
 require_brew tree
