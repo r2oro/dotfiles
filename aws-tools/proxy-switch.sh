@@ -71,7 +71,8 @@ case "$1" in
         myapps)
             # Swap in the temp values
             echo "Enabling proxy..."
-            export HTTP_PROXY="http://myapps.setpac.ge.com/pac.pac"
+            # export HTTP_PROXY="http://myapps.setpac.ge.com/pac.pac"
+            export HTTP_PROXY="http://127.0.0.1:31114"
             export http_proxy=$HTTP_PROXY
             export HTTPS_PROXY=$HTTP_PROXY
             export https_proxy=$HTTP_PROXY
