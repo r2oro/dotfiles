@@ -117,6 +117,7 @@ require_brew dos2unix
 # fortune command--I source this as a better motd :)
 require_brew fortune
 require_brew cowsay
+require_brew diffoscope
 require_brew gawk
 # http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
 require_brew gifsicle
@@ -138,13 +139,21 @@ require_brew homebrew/dupes/grep
 # require_brew hub
 # jq is a JSON grep
 require_brew jq
+#json pretty printer
+require_brew jsonpp
+#jenv is java environment manager
+require_brew jenv
+
 # http://maven.apache.org/
 # require_brew maven
+#mackup can backup application settings
+require_brew mackup
 require_brew nmap
 # require_brew node
 require_brew putty
 #polipo lets you cache files quick on your machine so vagrant spins up boxes quicker.
 require_brew polipo
+require_brew readline
 # require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
@@ -164,8 +173,10 @@ brew tap caskroom/versions > /dev/null 2>&1
 
 # cloud storage
 #require_cask amazon-cloud-drive
+require_cask java-beta
 require_cask atom
 require_cask box-sync
+require_cask cakebrew
 require_cask colloquy
 #require_cask dropbox
 # require_cask evernote
@@ -180,10 +191,13 @@ require_cask flowdock
 #require_cask comicbooklover
 require_cask diffmerge
 #require_cask flash-player
+require_cask grandperspective
 require_cask github-desktop
 require_cask gpgtools
 require_cask iterm2
 require_cask dashlane
+require_cask licecap
+require_cask onyx
 #require_cask macvim
 require_cask sizeup
 #require_cask simple-comic
