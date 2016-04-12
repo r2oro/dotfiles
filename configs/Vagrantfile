@@ -1,0 +1,39 @@
+Vagrant.configure('2') do |config|
+config.vm.box_download_insecure = true
+
+  if Vagrant.has_plugin?('vagrant-cachier')
+    config.cache.auto_detect = true
+    # config.cache.scope = :machine
+    config.cache.scope = :box
+    config.cache.enable :chef
+    # config.cache.enable :apt
+    config.cache.enable :yum
+    # config.cache.enable :gem
+  end
+
+
+if Vagrant.has_plugin?('vagrant-omnibus')
+  # chef_omnibus_install_options = '-d /tmp/vagrant-cache/vagrant_omnibus'
+  config.omnibus.cache_packages = true
+end
+
+  if Vagrant.has_plugin?('vagrant-proxyconf')
+    config.proxy.ftp  = ENV['VAGRANT_HTTP_PROXY']
+    config.proxy.http  = ENV['VAGRANT_HTTP_PROXY']
+    config.proxy.https = ENV['VAGRANT_HTTPS_PROXY']
+    config.proxy.no_proxy = ENV['VAGRANT_NO_PROXY']
+  end
+
+  if Vagrant.has_plugin?('vagrant-vbguest')
+    config.vbguest.auto_update = false
+    config.vbguest.no_remote = false
+  end
+end
+
+# if Vagrant.has_plugin?('vagrant-winrm')
+#   config.winrm.username = 'vagrant'
+#   config.winrm.password = 'vagrant'
+#   config.winrm.port = 5985
+#   config.winrm.guest_port = 5985
+#   config.winrm.winrm_transport = 'ssl'
+# end

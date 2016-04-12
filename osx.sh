@@ -465,6 +465,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0;ok
 
 running "Save screenshots to Pictures/Screenshots"
+mkdir -p ${HOME}/Pictures/Screenshots
 defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots";ok
 
 running "Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)"
@@ -971,6 +972,14 @@ require_vagrant_plugin vagrant-proxyconf
 require_vagrant_plugin vagrant-share
 require_vagrant_plugin vagrant-triggers
 require_vagrant_plugin vagrant-winrm
+
+###############################################################################
+bot "Vagrant Global Settings"
+###############################################################################
+
+running "Deploying Global Vagrantfile"
+cp ~/.dotfiles/configs/Vagrantfile ~/.vagrant.d/Vagrantfile 2> /dev/null;ok
+
 
 ###############################################################################
 # Kill affected applications                                                  #
