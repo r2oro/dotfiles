@@ -71,8 +71,8 @@ case "$1" in
         myapps)
             # Swap in the temp values
             echo "Enabling proxy..."
-            # export HTTP_PROXY="http://myapps.setpac.ge.com/pac.pac"
             export HTTP_PROXY="http://127.0.0.1:31114"
+            # export HTTP_PROXY="http://myapps.setpac.ge.com/pac.pac"
             export http_proxy=$HTTP_PROXY
             export HTTPS_PROXY=$HTTP_PROXY
             export https_proxy=$HTTP_PROXY
@@ -81,7 +81,7 @@ case "$1" in
             export VAGRANT_HTTP_PROXY=$HTTP_PROXY
             export VAGRANT_HTTPS_PROXY=$HTTP_PROXY
             export VAGRANT_FTP_PROXY=$HTTP_PROXY
-            export VAGRANT_NO_PROXY=$HTTP_PROXY
+            export VAGRANT_NO_PROXY=$NO_PROXY_TEMP
 
             ;;
 
@@ -97,7 +97,7 @@ case "$1" in
               export VAGRANT_HTTP_PROXY=$HTTP_PROXY
               export VAGRANT_HTTPS_PROXY=$HTTP_PROXY
               export VAGRANT_FTP_PROXY=$HTTP_PROXY
-              export VAGRANT_NO_PROXY=$HTTP_PROXY
+              export VAGRANT_NO_PROXY=$NO_PROXY_TEMP
 
               ;;
 
@@ -113,10 +113,25 @@ case "$1" in
               export VAGRANT_HTTP_PROXY=$HTTP_PROXY
               export VAGRANT_HTTPS_PROXY=$HTTP_PROXY
               export VAGRANT_FTP_PROXY=$HTTP_PROXY
-              export VAGRANT_NO_PROXY=$HTTP_PROXY
+              export VAGRANT_NO_PROXY=$NO_PROXY_TEMP
 
               ;;
 
+              cis)
+                  # Swap in the temp values
+                  echo "Enabling proxy..."
+                  export HTTP_PROXY="http://cis-americas-pitc-cinciz.proxy.corporate.ge.com:80"
+                  export http_proxy=$HTTP_PROXY
+                  export HTTPS_PROXY=$HTTP_PROXY
+                  export https_proxy=$HTTP_PROXY
+                  export NO_PROXY=$NO_PROXY_TEMP
+                  export no_proxy=$NO_PROXY_TEMP
+                  export VAGRANT_HTTP_PROXY=$HTTP_PROXY
+                  export VAGRANT_HTTPS_PROXY=$HTTP_PROXY
+                  export VAGRANT_FTP_PROXY=$HTTP_PROXY
+                  export VAGRANT_NO_PROXY=$NO_PROXY_TEMP
+
+                  ;;
 
 
         *)
