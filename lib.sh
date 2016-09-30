@@ -77,16 +77,16 @@ function require_gem() {
     ok
 }
 
-npmlist=`npm list -g`
-function require_npm() {
-    running "npm $1"
-    echo $npmlist | grep $1@ > /dev/null
-    if [[ $? != 0 ]]; then
-        action "npm install -g $1"
-        npm install -g $1
-    fi
-    ok
-}
+# npmlist=`npm list -g`
+# function require_npm() {
+#     running "npm $1"
+#     echo $npmlist | grep $1@ > /dev/null
+#     if [[ $? != 0 ]]; then
+#         action "npm install -g $1"
+#         npm install -g $1
+#     fi
+#     ok
+# }
 
 function require_node(){
     running "node -v"

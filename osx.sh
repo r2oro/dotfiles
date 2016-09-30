@@ -98,8 +98,8 @@ require_brew findutils
 #install narwhal
 #install aws command line interface
 require_brew awscli
-require_brew ec2-ami-tools
-require_brew ec2-api-tools
+#require_brew ec2-ami-tools
+#require_brew ec2-api-tools
 # Install other useful binaries
 require_brew ack
 # Beanstalk http://kr.github.io/beanstalkd/
@@ -117,19 +117,16 @@ require_brew dos2unix
 # fortune command--I source this as a better motd :)
 require_brew fortune
 require_brew cowsay
-require_brew diffoscope
+#require_brew diffoscope
 require_brew gawk
 # http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
-require_brew gifsicle
+#require_brew gifsicle
 # skip those GUI clients, git command-line all the way
 require_brew git
 # yes, yes, use git-flow, please :)
 require_brew git-flow
 # why is everyone still not using GPG?
 
-require_brew ruby
-# require_brew rbenv
-# require_brew ruby-build
 require_brew gnupg
 # Install GNU `sed`, overwriting the built-in `sed`
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
@@ -142,15 +139,15 @@ require_brew jq
 #json pretty printer
 require_brew jsonpp
 #jenv is java environment manager
-require_brew jenv
-
+#require_brew jenv
+#
 # http://maven.apache.org/
 # require_brew maven
 #mackup can backup application settings
 require_brew mackup
-require_brew nmap
+#require_brew nmap
 # require_brew node
-require_brew putty
+#require_brew putty
 #polipo lets you cache files quick on your machine so vagrant spins up boxes quicker.
 require_brew polipo
 require_brew readline
@@ -176,10 +173,10 @@ brew tap caskroom/versions > /dev/null 2>&1
 require_cask java-beta
 require_cask atom
 require_cask box-sync
-require_cask cakebrew
-require_cask colloquy
+#require_cask cakebrew
+#require_cask colloquy
 #require_cask dropbox
-# require_cask evernote
+require_cask evernote
 #require_cask skydrive
 
 # communication
@@ -189,32 +186,32 @@ require_cask flowdock
 
 # tools
 #require_cask comicbooklover
-require_cask diffmerge
+#require_cask diffmerge
 #require_cask flash-player
 require_cask grandperspective
 require_cask github-desktop
 require_cask gpgtools
 require_cask iterm2
 require_cask dashlane
-require_cask licecap
+#require_cask licecap
 require_cask onyx
 #require_cask macvim
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
 require_cask spectacle
-require_cask sublime-text3
+#require_cask sublime-text3
 # require_cask the-unarchiver
 #require_cask transmission
 # require_cask vlc
-require_cask xquartz
+#require_cask xquartz
 
 # development browsers
 # require_cask breach
 require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
-require_cask cord
+#require_cask cord
 require_cask rcdefaultapp
 
 # virtal machines
@@ -964,7 +961,7 @@ bot "Ruby Gems..."
 ###############################################################################
 sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
 require_gem git-up
-require_gem kitchen-ec2
+# require_gem kitchen-ec2
 require_gem aws-sdk-core
 require_gem lolcat
 require_gem knife-spork
