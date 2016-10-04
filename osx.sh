@@ -161,6 +161,7 @@ require_brew vim --override-system-vi
 require_brew watch
 # Install wget with IRI support
 require_brew wget --with-iri
+require_brew zsh
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
@@ -974,16 +975,16 @@ bot "Vagrant Plugins..."
 sudo chmod go-w /usr/local/bin
 sudo chmod go-w /usr/local
 
-require_vagrant_plugin vagrant-aws
+# require_vagrant_plugin vagrant-aws
 require_vagrant_plugin vagrant-cachier
-require_vagrant_plugin vagrant-berkshelf
-require_vagrant_plugin vagrant-env
+# require_vagrant_plugin vagrant-berkshelf
+# require_vagrant_plugin vagrant-env
 require_vagrant_plugin vagrant-omnibus
 require_vagrant_plugin vagrant-proxyconf
 require_vagrant_plugin vagrant-share
-require_vagrant_plugin vagrant-triggers
+# require_vagrant_plugin vagrant-triggers
 require_vagrant_plugin vagrant-winrm
-
+require_vagrant_plugin vagrant-persistent-storage
 ###############################################################################
 bot "Vagrant Global Settings"
 ###############################################################################

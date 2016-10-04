@@ -19,6 +19,33 @@ if [[ ! -e ~/.dotfiles_backup ]]; then
     mkdir ~/.dotfiles_backup
 fi
 
+
+# Ask for the administrator password upfront
+if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
+
+  # Ask for the administrator password upfront
+  bot "I need you to enter your sudo password so I can install some things:"
+  sudo -v
+
+  # Keep-alive: update existing sudo time stamp until the script has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+  bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
+
+  read -r -p "Make sudo passwordless? [y|N] " response
+
+  if [[ $response =~ (yes|y|Y) ]];then
+      sed --version 2>&1 > /dev/null
+      sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+      if [[ $? == 0 ]];then
+          sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+      fi
+      sudo dscl . append /Groups/wheel GroupMembership $(whoami)
+      bot "You can now run sudo commands without password!"
+  fi
+fi
+
+
 bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
 
 fullname=`osascript -e "long user name of (system info)"`

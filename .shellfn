@@ -6,10 +6,10 @@ function rdp(){
 echo "Please enter IP address of box to RDP into: "
 read ipaddr
 echo "You entered: $ipaddr"
-port_no="9001"
+port_no="9002"
 echo "Localhost port # for RDP: $port_no"
-#ec2_jumpbox_ip="10.227.163.21"
-ec2_jumpbox_ip="10.227.167.92"
+#ec2_jumpbox_ip="10.227.162.96"
+ec2_jumpbox_ip="10.227.162.96"
 echo "ec2 jumpbox IP address: $ec2_jumpbox_ip"
 ssh -L $port_no:$ipaddr:3389 gecloud@$ec2_jumpbox_ip
 
