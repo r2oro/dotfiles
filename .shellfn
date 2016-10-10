@@ -16,6 +16,71 @@ ssh -L $port_no:$ipaddr:3389 gecloud@$ec2_jumpbox_ip
 
 }
 
+#gets aws keys
+function keyrefresh-aws(){
+	## customize the following variables
+
+# setting for assumerole api call
+name_for_this_session="212050466"
+
+# account that you want access to (will lead to error if you're not authorized)
+account_no="164996153968"
+
+# role that you want access to (will lead to error if you're not authorized)
+my_approved_role="bu-poweruser"
+
+# how long will this token be valid for (min. 900, max. 3600)
+valid_seconds=${seconds:=3600}
+
+#### should not need to edit below this line
+# the ARN for the role for which temporary token is to be generated
+# format:
+# arn_for_the_role="arn:aws:iam::TARGET_ACCOUNT_NO:role/TARGET_ROLE_NAME"
+arn_for_the_role="arn:aws:iam::${account_no}:role/${my_approved_role}"
+
+# optional: note the time at which keys were generated
+generated_at=$(date -u "+%Y-%m-%dT%H:%M:%S")
+
+# call STS to get temporary creds
+temp_creds=$(aws sts assume-role \
+                 --role-arn $arn_for_the_role \
+                 --role-session-name $name_for_this_session \
+                 --duration-seconds $valid_seconds \
+                 --profile default \
+                 --output json)
+
+# extract access and secret keys and session token from response
+# store in local shell vars
+aws_access_key_id=$(echo $temp_creds \
+                | jq '.Credentials.AccessKeyId' \
+                | sed -e 's/\"//g')
+
+aws_secret_access_key=$(echo $temp_creds \
+                    | jq '.Credentials.SecretAccessKey' \
+                    | sed -e 's/\"//g')
+
+aws_session_token=$(echo $temp_creds \
+                 | jq '.Credentials.SessionToken' \
+                 | sed -e 's/\"//g')
+
+expires_at=$(echo $temp_creds \
+             | jq '.Credentials.Expiration'\
+             | sed -e 's/\"//g' -e 's/Z//')
+
+echo "generated at: $generated_at" && echo "expiring at: $expires_at"
+
+#Set the 3 temp. keys in credentials/config file for the 'temp' profile
+aws configure set AWS_ACCESS_KEY_ID $aws_access_key_id --profile temp
+aws configure set AWS_SECRET_ACCESS_KEY $aws_secret_access_key --profile temp
+aws configure set AWS_SESSION_TOKEN $aws_session_token --profile temp
+
+#updates environment vars
+AWS_ACCESS_KEY_ID=$aws_access_key_id; export AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY=$aws_secret_access_key; export AWS_SECRET_ACCESS_KEY
+AWS_SESSION_TOKEN=$aws_session_token; export AWS_SESSION_TOKEN
+
+}
+
 #____________________________===================_____________________
 #########################################
 # Utility Functions

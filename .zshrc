@@ -60,3 +60,5 @@ autoload -U zmv
 # you don't need the following two now, but put them also in your .zshrc
 alias zcp='zmv -C'
 alias zln='zmv -L'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

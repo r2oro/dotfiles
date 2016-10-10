@@ -49,6 +49,7 @@ alias kl='chef exec kitchen login'
 alias klist='chef exec kitchen list'
 alias ball='berks install && berks upload'
 alias cook='foodcritic -C `pwd` && rubocop -D -S'
+alias cook_fix='rubocop --auto-correct'
 
 #############################
 # Utilities
