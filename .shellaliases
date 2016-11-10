@@ -29,7 +29,6 @@ alias to.dropbox='cd ~/Dropbox'
 alias to.docs='cd ${MYDOCUMENTS}'
 alias to.code='cd ${MYCODE}'
 alias to.scratch='cd ${MYSCRATCH}'
-
 alias to.devapps='cd ${MYDEVAPPS}'
 
 
@@ -43,13 +42,19 @@ alias v=vagrant
 alias vp='vagrant provision'
 alias vd='vagrant destroy -f'
 alias k=kitchen
-alias kd='chef exec kitchen destroy'
-alias kc='chef exec kitchen converge'
-alias kl='chef exec kitchen login'
+alias kd='kitchen destroy'
+alias kc='kitchen converge'
+alias kl='kitchen login'
 alias klist='chef exec kitchen list'
 alias ball='berks install && berks upload'
 alias cook='foodcritic -C `pwd` && rubocop -D -S'
 alias cook_fix='rubocop --auto-correct'
+
+#####################################
+# brew shortcut commands
+#####################################
+alias brew-cask-refresh='brew cask list | xargs brew cask install --force'
+alias brew-refresh='brew update && brew upgrade'
 
 #############################
 # Utilities

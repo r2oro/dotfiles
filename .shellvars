@@ -1,12 +1,14 @@
-# Set Sublime Text as our default command line editor (vi is the default otherwise)
+# Set Atom as our default command line editor (vi is the default otherwise)
 export EDITOR='atom -w'
 # export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
 # export SSL_CERT_FILE=/opt/chefdk/embedded/ssl/certs/cacert.pem
+
 ################################################
 #http environment variables
 ###############################################
 
-export HTTP_PROXY_TEMP=http://http-proxy.ha.health.ge.com:88/
+#export HTTP_PROXY_TEMP=http://http-proxy.ha.health.ge.com:88/
+export HTTP_PROXY_TEMP=http://pitc-cin.cloud.health.ge.com:80/
 export HTTPS_PROXY_TEMP=$HTTP_PROXY_TEMP
 export NO_PROXY_TEMP=localhost,127.0.0.1,127.0.0.0,10.0.0.0,10.0.2.15,.ge.com
 export HTTPS_PROXY=$HTTPS_PROXY_TEMP
