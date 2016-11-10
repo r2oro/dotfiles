@@ -31,7 +31,6 @@ alias to.code='cd ${MYCODE}'
 alias to.scratch='cd ${MYSCRATCH}'
 alias to.devapps='cd ${MYDEVAPPS}'
 
-
 #################################
 # Simple Program Name Shortening
 alias g=git

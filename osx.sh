@@ -149,6 +149,7 @@ require_brew mackup
 # require_brew node
 #require_brew putty
 #polipo lets you cache files quick on your machine so vagrant spins up boxes quicker.
+require_brew python
 require_brew polipo
 require_brew readline
 # require_brew redis
@@ -233,6 +234,11 @@ bot "aws/proxy setup"                     #
 ################################################
 running "Copying AWS-tools"
 cp -r aws-tools ~/aws-tools
+
+################################################
+bot "python pip installs"                     #
+################################################
+pip install scalr-ctl
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
