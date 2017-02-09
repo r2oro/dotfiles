@@ -33,6 +33,7 @@ export proxy_url6=http://pitc-cin.cloud.health.ge.com:80/
 export proxy_url7=http://http-proxy.ha.health.ge.com:88/
 export proxy_url8=http://cis-americas-pitc-cinciz.proxy.corporate.ge.com:80
 export proxy_url9=http://proxy-src.research.ge.com:8080
+export proxy_url10=http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
 
 
 # These aliases are used to check the proxy and turn it on and off
@@ -46,10 +47,11 @@ alias proxyon_pitc="export http_proxy=$proxy_url6; export https_proxy=$proxy_url
 alias proxyon_health="export http_proxy=$proxy_url7; export https_proxy=$proxy_url7;proxy"
 alias proxyon_cis="export http_proxy=$proxy_url8; export https_proxy=$proxy_url8;proxy"
 alias proxyon_research="export http_proxy=$proxy_url9; export https_proxy=$proxy_url9;proxy"
+alias proxyon_pitcCIS="export http_proxy=$proxy_url10; export https_proxy=$proxy_url10;proxy"
 
 
 alias proxyoff="unset http_proxy; unset https_proxy; unset ftp_proxy; unset"
-export no_proxy="localhost,127.0.0.1,*.ge.com,10.0.2.2"
+export no_proxy="localhost,127.0.0.1,.ge.com,3.,10,*.ge.com,10.0.2.2"
 
 # default one to start is health proxy
 proxyon_health
