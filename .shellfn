@@ -8,17 +8,24 @@ read ipaddr
 echo "You entered: $ipaddr"
 port_no="9002"
 echo "Localhost port # for RDP: $port_no"
-#ec2_jumpbox_ip="10.227.162.96"
-ec2_jumpbox_ip="10.227.162.96"
+ec2_jumpbox_ip="10.227.165.28"
 echo "ec2 jumpbox IP address: $ec2_jumpbox_ip"
 ssh -L $port_no:$ipaddr:3389 gecloud@$ec2_jumpbox_ip
+}
 
-
+#will setup quick RDP tunnel for windows boxes in SCALR
+function rdp_me(){
+ipaddr="10.227.165.167"
+port_no="9008"
+echo "Attempting connection to $ipaddr box at port: $port_no"
+ec2_jumpbox_ip="10.227.165.28"
+echo "ec2 jumpbox IP address: $ec2_jumpbox_ip"
+ssh -L $port_no:$ipaddr:3389 gecloud@$ec2_jumpbox_ip
 }
 
 #gets aws keys
 function keyrefresh-aws(){
-	## customize the following variables
+  ## customize the following variables
 
 # setting for assumerole api call
 name_for_this_session="212050466"

@@ -1,5 +1,59 @@
 #!/bin/sh
 
+################################################
+#http environment variables
+###############################################
+
+# export HTTP_PROXY_TEMP=http://http-proxy.ha.health.ge.com:88/
+# #export HTTP_PROXY_TEMP=http://pitc-cin.cloud.health.ge.com:80/
+# export HTTPS_PROXY_TEMP=$HTTP_PROXY_TEMP
+# export NO_PROXY_TEMP=localhost,127.0.0.1,127.0.0.0,10.0.0.0,10.0.2.15,.ge.com
+# export HTTPS_PROXY=$HTTPS_PROXY_TEMP
+# export HTTP_PROXY=$HTTP_PROXY_TEMP
+# export http_proxy=$HTTP_PROXY_TEMP
+# export https_proxy=$HTTPS_PROXY_TEMP
+# export VAGRANT_HTTP_PROXY=$HTTP_PROXY_TEMP
+# export VAGRANT_HTTPS_PROXY=$HTTPS_PROXY_TEMP
+# export VAGRANT_FTP_PROXY=$HTTP_PROXY_TEMP
+# export VAGRANT_NO_PROXY=$NO_PROXY_TEMP
+#
+# export VPN_HTTP_PROXY_TEMP=$HTTP_PROXY_TEMP
+# export VPN_HTTPS_PROXY_TEMP=$HTTP_PROXY_TEMP
+# export VPN_NO_PROXY_TEMP=$NO_PROXY_TEMP
+##########################################
+# Proxy Fun
+#########################################
+# Define our default proxy
+export proxy_url=http://3.166.220.15:3128
+export proxy_url2=http://cinproxy.glb.comfin.ge.com:80
+export proxy_url3=http://iss-americas-pitc-cincinnatiz.proxy.corporate.ge.co
+export proxy_url4=http://http-proxy.us.money.ge.com
+export proxy_url5=http://127.0.0.1:31114
+export proxy_url6=http://pitc-cin.cloud.health.ge.com:80/
+export proxy_url7=http://http-proxy.ha.health.ge.com:88/
+export proxy_url8=http://cis-americas-pitc-cinciz.proxy.corporate.ge.com:80
+export proxy_url9=http://proxy-src.research.ge.com:8080
+
+
+# These aliases are used to check the proxy and turn it on and off
+alias proxy="env |grep _proxy"
+alias proxyon_archops="export http_proxy=$proxy_url; export https_proxy=$proxy_url;proxy"
+alias proxyon_cin="export http_proxy=$proxy_url2; export https_proxy=$proxy_url2;proxy"
+alias proxyon_cin2="export http_proxy=$proxy_url3; export https_proxy=$proxy_url3;proxy"
+alias proxyon_money="export http_proxy=$proxy_url4; export https_proxy=$proxy_url4;proxy"
+alias proxyon_myapps="export http_proxy=$proxy_url5; export https_proxy=$proxy_url5;proxy"
+alias proxyon_pitc="export http_proxy=$proxy_url6; export https_proxy=$proxy_url6;proxy"
+alias proxyon_health="export http_proxy=$proxy_url7; export https_proxy=$proxy_url7;proxy"
+alias proxyon_cis="export http_proxy=$proxy_url8; export https_proxy=$proxy_url8;proxy"
+alias proxyon_research="export http_proxy=$proxy_url9; export https_proxy=$proxy_url9;proxy"
+
+
+alias proxyoff="unset http_proxy; unset https_proxy; unset ftp_proxy; unset"
+export no_proxy="localhost,127.0.0.1,*.ge.com,10.0.2.2"
+
+# default one to start is health proxy
+proxyon_health
+
 #########################################
 # to find files that are hidden
 #########################################
