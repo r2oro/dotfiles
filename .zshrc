@@ -8,8 +8,9 @@ export VISUAL=$EDITOR
 # Look in $ZSH/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="ys"
+#export ZSH_THEME="ys"
 #export ZSH_THEME="random"
+export ZSH_THEME="ys"
 
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
@@ -23,9 +24,12 @@ export CASE_SENSITIVE="true"
 # Uncomment following line if you want to disable autosetting terminal title.
 # export DISABLE_AUTO_TITLE="true"
 
+KNIFE_CONF_PATH=$HOME/chef/.chef/knife.rb
+KNIFE_COOKBOOK_PATH=$HOME/chef/cookbooks
+
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent colorize osx)
+plugins=(git brew github osx rvm knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,5 +64,12 @@ autoload -U zmv
 # you don't need the following two now, but put them also in your .zshrc
 alias zcp='zmv -C'
 alias zln='zmv -L'
+
+export LESS=-XR
+PATH=$HOME/bin:$PATH
+export CDPATH=$HOME:$HOME/chef/cookbooks
+alias arole='source $HOME/bin/set_aws_role'
+alias aacc='source $HOME/bin/set_aws_account'
+alias sts='source $HOME/bin/set_aws_sts_creds'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

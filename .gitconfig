@@ -1,13 +1,12 @@
 [user]
-	name = 212050466
-	email = josh.schneider@ge.com
+	name = 212481589
+	email = artur.pioro@ge.com
 [github]
-    # https://github.com/blog/180-local-github-config
-    user = joshoohaah
+  # https://github.com/blog/180-local-github-config
+  user = r2oro
 
-    # in a few months, look into the include directive (after bug fixes)
-    token = MOVEALONG
-
+  # in a few months, look into the include directive (after bug fixes)
+  token = MOVEALONG
 [color]
 # ui = true is a superset of all the more specific color options
 #  as documented at http://book.git-scm.com/5_customizing_git.html
@@ -35,7 +34,7 @@
 	untracked = cyan
 
 [advice]
-    statusHints = false
+    statusHints = true
 
 [gui]
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0

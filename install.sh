@@ -5,10 +5,10 @@
 # @author Adam Eivy
 ###########################
 
-DEFAULT_EMAIL="josh.schneider@ge.com"
-DEFAULT_GITHUBUSER="212050466"
-DEFAULT_NAME="Josh Schneider"
-DEFAULT_USERNAME="joshoohaah"
+DEFAULT_EMAIL="artur.pioro@ge.com"
+DEFAULT_GITHUBUSER="212481589"
+DEFAULT_NAME="Artur Pioro"
+DEFAULT_USERNAME="arpi"
 
 
 # include my library helpers for colorized echo and require_brew, etc
@@ -30,19 +30,19 @@ if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
   # Keep-alive: update existing sudo time stamp until the script has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-  bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
-
-  read -r -p "Make sudo passwordless? [y|N] " response
-
-  if [[ $response =~ (yes|y|Y) ]];then
-      sed --version 2>&1 > /dev/null
-      sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-      if [[ $? == 0 ]];then
-          sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-      fi
-      sudo dscl . append /Groups/wheel GroupMembership $(whoami)
-      bot "You can now run sudo commands without password!"
-  fi
+#   bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
+#
+#   read -r -p "Make sudo passwordless? [y|N] " response
+#
+#   if [[ $response =~ (yes|y|Y) ]];then
+#       sed --version 2>&1 > /dev/null
+#       sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+#       if [[ $? == 0 ]];then
+#           sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+#       fi
+#       sudo dscl . append /Groups/wheel GroupMembership $(whoami)
+#       bot "You can now run sudo commands without password!"
+#   fi
 fi
 
 
