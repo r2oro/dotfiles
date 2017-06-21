@@ -56,7 +56,8 @@ alias proxyoff="unset http_proxy; unset https_proxy; unset ftp_proxy"
 export no_proxy="localhost,127.0.0.1,.ge.com,3.,10,*.ge.com,10.0.2.2"
 
 # default one to start is health proxy
-proxyon_health
+#proxyon_health
+proxyoff
 
 #########################################
 # to find files that are hidden

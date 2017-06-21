@@ -86,6 +86,8 @@ require_brew coreutils
 require_brew moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 require_brew findutils
+# ip addresses
+require_brew ipcalc
 
 # Install Bash 4
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
@@ -163,7 +165,6 @@ require_brew watch
 # Install wget with IRI support
 require_brew wget --with-iri
 require_brew zsh
-require_brew findutils
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
@@ -171,45 +172,62 @@ require_brew findutils
 bot "installing GUI tools via homebrew casks..."
 brew tap caskroom/versions > /dev/null 2>&1
 
+# cask menagement
+require_cask cakebrew
+
+# editors
+require_cask atom
+#require_cask sublime-text3
+#require_cask macvim
+
 # cloud storage
 #require_cask amazon-cloud-drive
-require_cask java-beta
-require_cask atom
 require_cask box-sync
-require_cask cakebrew
-require_cask colloquy
 require_cask dropbox
+require_cask google-drive
 require_cask evernote
+require_cask cyberduck
 #require_cask skydrive
 
 # communication
+require_cask colloquy
 #require_cask adium
-# require_cask slack
+#require_cask slack
 require_cask flowdock
 
 # tools
 #require_cask comicbooklover
 require_cask diffmerge
-require_cask flash-player
 require_cask grandperspective
 require_cask github-desktop
 require_cask gpgtools
 require_cask iterm2
-require_cask dashlane
 #require_cask licecap
 require_cask onyx
-#require_cask macvim
-require_cask sizeup
-#require_cask simple-comic
-#require_cask sketchup
-require_cask spectacle
-#require_cask sublime-text3
-# require_cask the-unarchiver
-#require_cask transmission
-require_cask vlc
 require_cask xquartz
+#require_cask the-unarchiver
+#require_cask transmission
+require_cask java-beta
+require_cask wireshark
+#require_cask deluge
+
+# media
+require_cask vlc
+require_cask flash-player
+require_cask calibre
+require_cask kindle
+require_cask gimp
+require_cask picasa
+#require_cask sketchup
+#require_cask simple-comic
+
+# passwords
+require_cask keepassx
+#require_cask dashlane
 
 # GUI helpers
+require_cask sizeup
+require_cask spectacle
 require_cask karabiner-elements
 require_cask magicprefs
 require_cask cheatsheet
