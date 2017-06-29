@@ -209,6 +209,7 @@ require_cask xquartz
 #require_cask transmission
 require_cask java-beta
 require_cask wireshark
+require_cask cocoarestclient
 #require_cask deluge
 
 # media
