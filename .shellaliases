@@ -104,7 +104,7 @@ alias kd='kitchen destroy'
 alias kc='kitchen converge'
 alias kl='kitchen login'
 alias klist='chef exec kitchen list'
-alias ball='berks install && berks upload'
+alias ball='berks install && berks update && berks upload'
 alias cook='foodcritic -C `pwd` && rubocop -D -S'
 alias cook_fix='rubocop --auto-correct'
 

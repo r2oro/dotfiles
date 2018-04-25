@@ -129,6 +129,7 @@ require_brew git
 require_brew git-flow
 # why is everyone still not using GPG?
 
+require_brew graphviz
 require_brew gnupg
 # Install GNU `sed`, overwriting the built-in `sed`
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
@@ -192,7 +193,7 @@ require_cask cyberduck
 # communication
 require_cask colloquy
 #require_cask adium
-#require_cask slack
+require_cask slack
 require_cask flowdock
 
 # tools

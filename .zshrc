@@ -10,7 +10,7 @@ export VISUAL=$EDITOR
 # time that oh-my-zsh is loaded.
 #export ZSH_THEME="ys"
 #export ZSH_THEME="random"
-export ZSH_THEME="ys"
+export ZSH_THEME="ys_chef"
 
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
@@ -72,4 +72,17 @@ alias arole='source $HOME/bin/set_aws_role'
 alias aacc='source $HOME/bin/set_aws_account'
 alias sts='source $HOME/bin/set_aws_sts_creds'
 
+#Cago
+alias cagol='source /usr/local/bin/cago.sh list'
+alias cagor='source /usr/local/bin/cago.sh refresh'
+alias cagos='source /usr/local/bin/cago.sh switch'
+alias cagou='source /usr/local/bin/cago.sh unset'
+export CAGO_CONFIG_URL=$HOME/.aws/cago.yaml
+
+alias jqc='jq -C "."'
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
