@@ -1001,6 +1001,7 @@ require_gem aws-sdk-core
 require_gem lolcat
 require_gem knife-spork
 require_gem lolcommits
+require_gem rubocop
 
 ###############################################################################
 bot "Vagrant Plugins..."
