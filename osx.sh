@@ -166,6 +166,7 @@ require_brew watch
 # Install wget with IRI support
 require_brew wget --with-iri
 require_brew zsh
+require_brew proxytunnel
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
