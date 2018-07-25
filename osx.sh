@@ -167,6 +167,7 @@ require_brew watch
 require_brew wget --with-iri
 require_brew zsh
 require_brew proxytunnel
+require_brew corkscrew
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
