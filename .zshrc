@@ -68,8 +68,8 @@ alias zln='zmv -L'
 export LESS=-XR
 PATH=$HOME/bin:$PATH
 export CDPATH=$HOME:$HOME/chef/cookbooks
-alias arole='source $HOME/bin/set_aws_role'
-alias aacc='source $HOME/bin/set_aws_account'
+alias arole='source $HOME/bin/set_aws_role.sh'
+alias aacc='source $HOME/bin/set_aws_account.sh'
 alias sts='source $HOME/bin/set_aws_sts_creds'
 
 #Cago
