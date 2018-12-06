@@ -168,6 +168,7 @@ require_brew wget --with-iri
 require_brew zsh
 require_brew proxytunnel
 require_brew corkscrew
+require_brew autojump
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #

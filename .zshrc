@@ -29,7 +29,7 @@ KNIFE_COOKBOOK_PATH=$HOME/chef/cookbooks
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github osx rvm knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize osx)
+plugins=(git brew github osx rvm knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize autojump osx)
 
 source $ZSH/oh-my-zsh.sh
 
