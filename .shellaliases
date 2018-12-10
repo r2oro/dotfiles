@@ -39,25 +39,26 @@ export proxy_url11=http://192.168.1.10:3128
 
 # These aliases are used to check the proxy and turn it on and off
 alias proxy="env |grep -i _proxy"
-alias proxyon_archops="export http_proxy=$proxy_url; export https_proxy=$proxy_url;proxy"
-alias proxyon_cin="export http_proxy=$proxy_url2; export https_proxy=$proxy_url2;proxy"
-alias proxyon_cin2="export http_proxy=$proxy_url3; export https_proxy=$proxy_url3;proxy"
-alias proxyon_money="export http_proxy=$proxy_url4; export https_proxy=$proxy_url4;proxy"
-alias proxyon_myapps="export http_proxy=$proxy_url5; export https_proxy=$proxy_url5;proxy"
-alias proxyon_pitc="export http_proxy=$proxy_url6; export https_proxy=$proxy_url6;proxy"
-alias proxyon_health="export http_proxy=$proxy_url7; export https_proxy=$proxy_url7;proxy"
-alias proxyon_cis="export http_proxy=$proxy_url8; export https_proxy=$proxy_url8;proxy"
-alias proxyon_research="export http_proxy=$proxy_url9; export https_proxy=$proxy_url9;proxy"
-alias proxyon_pitcCIS="export http_proxy=$proxy_url10; export https_proxy=$proxy_url10;proxy"
-alias proxyon_qnap="export http_proxy=$proxy_url11; export https_proxy=$proxy_url11;proxy"
+alias proxyon_archops="export http_proxy=$proxy_url; export https_proxy=$proxy_url;proxy|tee ~/.proxy.sh"
+alias proxyon_cin="export http_proxy=$proxy_url2; export https_proxy=$proxy_url2;proxy|tee ~/.proxy.sh"
+alias proxyon_cin2="export http_proxy=$proxy_url3; export https_proxy=$proxy_url3;proxy|tee ~/.proxy.sh"
+alias proxyon_money="export http_proxy=$proxy_url4; export https_proxy=$proxy_url4;proxy|tee ~/.proxy.sh"
+alias proxyon_myapps="export http_proxy=$proxy_url5; export https_proxy=$proxy_url5;proxy|tee ~/.proxy.sh"
+alias proxyon_pitc="export http_proxy=$proxy_url6; export https_proxy=$proxy_url6;proxy|tee ~/.proxy.sh"
+alias proxyon_health="export http_proxy=$proxy_url7; export https_proxy=$proxy_url7;proxy|tee ~/.proxy.sh"
+alias proxyon_cis="export http_proxy=$proxy_url8; export https_proxy=$proxy_url8;proxy|tee ~/.proxy.sh"
+alias proxyon_research="export http_proxy=$proxy_url9; export https_proxy=$proxy_url9;proxy|tee ~/.proxy.sh"
+alias proxyon_pitcCIS="export http_proxy=$proxy_url10; export https_proxy=$proxy_url10;proxy|tee ~/.proxy.sh"
+alias proxyon_qnap="export http_proxy=$proxy_url11; export https_proxy=$proxy_url11;proxy|tee ~/.proxy.sh"
 
 
-alias proxyoff="unset http_proxy; unset https_proxy; unset ftp_proxy"
+alias proxyoff="unset http_proxy; unset https_proxy; unset ftp_proxy;proxy|tee ~/.proxy.sh"
 export no_proxy="localhost,127.0.0.1,.ge.com,3.,10,*.ge.com,10.0.2.2"
 
 # default one to start is health proxy
 #proxyon_health
-proxyoff
+#proxyoff
+# . ~/.proxy.sh
 
 #########################################
 # to find files that are hidden
@@ -68,7 +69,7 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 ######################
 # Turn proxies on/off
 #####################
-# alias proxyon="source $AWS_TOOLS_PATH/proxy-switch.sh on"
+# alias proxy="source $AWS_TOOLS_PATH/proxy-switch.sh on"
 # alias proxyon_myapps="source $AWS_TOOLS_PATH/proxy-switch.sh myapps"
 # alias proxyon_pitc="source $AWS_TOOLS_PATH/proxy-switch.sh pitc"
 # alias proxyon_health="source $AWS_TOOLS_PATH/proxy-switch.sh health"
@@ -171,3 +172,6 @@ alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -
 # node.js + io.js
 alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
 alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
+
+# Preferred aliases - no matter how elsewhere defined
+alias l=less

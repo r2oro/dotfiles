@@ -80,6 +80,18 @@ alias cagou='source /usr/local/bin/cago.sh unset'
 export CAGO_CONFIG_URL=$HOME/.aws/cago.yaml
 
 alias jqc='jq -C "."'
+alias l=less
+
+# Close shell only after 2 consecutive EOFs
+setopt IGNORE_EOF
+
+# Shell line editing
+
+# Proxy
+. ~/.proxy.sh
+[[ -n "$http_proxy" ]] && export http_proxy
+[[ -n "$https_proxy" ]] && export https_proxy
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
