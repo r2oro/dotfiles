@@ -82,6 +82,16 @@ export CAGO_CONFIG_URL=$HOME/.aws/cago.yaml
 alias jqc='jq -C "."'
 alias l=less
 
+# Chef Aliases
+alias chprod='source $HOME/bin/swchef prod'
+alias chdev='source $HOME/bin/swchef dev'
+alias chdcar='source $HOME/bin/swchef dcar'
+alias choprod='source $HOME/bin/swchef oprod'
+alias chodev='source $HOME/bin/swchef odev'
+alias chtprod='source $HOME/bin/swchef tprod'
+alias chtdev='source $HOME/bin/swchef tdev'
+alias chnone='unset CHEF_SERVER_URL'
+
 # Close shell only after 2 consecutive EOFs
 setopt IGNORE_EOF
 
