@@ -111,7 +111,7 @@ require_brew ack
 
 # docker setup:
 # require_brew fig
-# require_brew docker
+require_brew docker
 # require_brew boot2docker
 
 # dos2unix converts windows newlines to unix newlines
@@ -169,6 +169,13 @@ require_brew zsh
 require_brew proxytunnel
 require_brew corkscrew
 require_brew autojump
+
+# Terraform
+require_brew terraform
+
+# Gossamer
+brew tap GESkunkworks/gossamer https://github.com/GESkunkworks/geskunkworks-taps
+require_brew gossamer
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #

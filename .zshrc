@@ -29,7 +29,7 @@ KNIFE_COOKBOOK_PATH=$HOME/chef/cookbooks
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github osx rvm knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize autojump osx)
+plugins=(git brew github osx rvm knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize autojump osx terraform)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,6 +94,12 @@ alias chnone='unset CHEF_SERVER_URL'
 
 # Close shell only after 2 consecutive EOFs
 setopt IGNORE_EOF
+
+# CloudPod Init
+source $HOME/.dotfiles/cloudpod.sh
+
+# Automate Token
+export ATOK="s1Qvir5Cgx0Fej94_oKRDrx3TLA="
 
 # Shell line editing
 
