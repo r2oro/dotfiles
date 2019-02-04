@@ -275,7 +275,9 @@ cp -r aws-tools ~/aws-tools
 ################################################
 bot "python pip installs"                     #
 ################################################
+pip install --upgrade pip
 pip install scalr-ctl
+pip install aws-shell
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
