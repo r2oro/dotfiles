@@ -1014,6 +1014,7 @@ require_gem lolcat
 require_gem knife-spork
 require_gem lolcommits
 require_gem rubocop
+require_gem ruby-beautify
 
 ###############################################################################
 bot "Vagrant Plugins..."
