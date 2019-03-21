@@ -177,6 +177,10 @@ require_brew terraform
 brew tap GESkunkworks/gossamer https://github.com/GESkunkworks/geskunkworks-taps
 require_brew gossamer
 
+# AWS SAM (Serverless Application Model - for CloudFormation)
+brew tap aws/tap
+require_brew aws-sam-cli
+
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
 ###############################################################################
