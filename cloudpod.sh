@@ -66,9 +66,9 @@ export MFA="arn:aws:iam::589623221417:mfa/212481589"
 ## gossamer starter commands
 
 ## Assumes all the roles listed in roles.json using the starter profile of giam and outputs to ~/.aws/credentials
-alias gossall='~/gossamer/gossamer -rolesfile ~/gossamer/roles.json -profile giam -serialnumber $MFA -o ~/.aws/credentials -force -tokencode'
+alias gossall='/usr/local/bin/gossamer -rolesfile ~/gossamer/roles.json -profile giam -serialnumber $MFA -o ~/.aws/credentials -force -tokencode'
 ## Assumes the one role admin-to-gecc using the profile pcpoot and outputs the entry as pctpooter to ~/.aws/credentials
-alias gossone='~/gossamer/gossamer -a arn:aws:iam::737859062117:role/admin-to-gecc -profile pcpoot -o ~/.aws/credentials -force -entryname pcpooter'
+alias gossone='/usr/local/bin/gossamer -a arn:aws:iam::737859062117:role/admin-to-gecc -profile pcpoot -o ~/.aws/credentials -force -entryname pcpooter'
 
 # helpful for setting proxies before a docker build
 alias dbuild='docker build --build-arg http_proxy=http://10.114.16.12:80 --build-arg https_proxy=http://10.114.16.12:80 --build-arg no_proxy="localhost,127.0.0.1,ge.com,3.0.0.0/8,10.0.0.0/8" . -t'
