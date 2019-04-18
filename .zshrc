@@ -29,7 +29,9 @@ KNIFE_COOKBOOK_PATH=$HOME/chef/cookbooks
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github osx rvm knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize autojump osx terraform)
+plugins=(git brew github osx knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize autojump osx terraform)
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,24 +39,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 unsetopt correct
-
-# export PATH="/Users/antic/.rbenv/shims:${PATH}"
-# source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
-# rbenv rehash 2>/dev/null
-# rbenv() {
-#   typeset command
-#   command="$1"
-#   if [ "$#" -gt 0 ]; then
-#     shift
-#   fi
-#
-#   case "$command" in
-#   rehash|shell)
-#     eval `rbenv "sh-$command" "$@"`;;
-#   *)
-#     command rbenv "$command" "$@";;
-#   esac
-# }
 
 # run fortune on new terminal :)
 fortune | cowsay | lolcat
@@ -110,9 +94,8 @@ export ATOK="s1Qvir5Cgx0Fej94_oKRDrx3TLA="
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 eval "$(_SCALR_CTL_COMPLETE=source scalr-ctl)"
