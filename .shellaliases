@@ -174,3 +174,6 @@ alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 
 # Preferred aliases - no matter how elsewhere defined
 alias l=less
+
+# CloudFormation
+alias cf='aws cloudformation'
