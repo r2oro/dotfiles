@@ -29,7 +29,7 @@ KNIFE_COOKBOOK_PATH=$HOME/chef/cookbooks
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github osx knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize autojump osx terraform)
+plugins=(git docker brew github osx knife kitchen vagrant aws compleat dirpersist gem git-flow ssh-agent colorize autojump osx terraform)
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
