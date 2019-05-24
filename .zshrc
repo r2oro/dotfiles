@@ -99,3 +99,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # export PATH="$PATH:$HOME/.rvm/bin"
 
 eval "$(_SCALR_CTL_COMPLETE=source scalr-ctl)"
+
+# OpennStack
+source ~/.dotfiles/_openstack.zsh
