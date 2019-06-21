@@ -180,3 +180,4 @@ alias cf='aws cloudformation'
 
 # OpenStack/GEIX
 alias geix-login='pushd -q /tmp >/dev; python ~/bin/geix_auth.py; source samlrc; popdi -q'
+alias os=openstack
