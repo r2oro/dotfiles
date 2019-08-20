@@ -74,7 +74,8 @@ alias choprod='source $HOME/bin/swchef oprod'
 alias chodev='source $HOME/bin/swchef odev'
 alias chtprod='source $HOME/bin/swchef tprod'
 alias chtdev='source $HOME/bin/swchef tdev'
-alias chnone='unset CHEF_SERVER_URL'
+alias chpwdev='source $HOME/bin/swchef pwdev'
+alias chnone='unset CHEF_SERVER_URL CHEF_PEM'
 
 # Close shell only after 2 consecutive EOFs
 setopt IGNORE_EOF
