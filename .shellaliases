@@ -35,6 +35,7 @@ export proxy_url8=http://cis-americas-pitc-cinciz.proxy.corporate.ge.com:80
 export proxy_url9=http://proxy-src.research.ge.com:8080
 export proxy_url10=http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
 export proxy_url11=http://192.168.1.10:3128
+export proxy_url12=http://10.229.163.78:80
 
 
 # These aliases are used to check the proxy and turn it on and off
@@ -50,6 +51,7 @@ alias proxyon_cis="export http_proxy=$proxy_url8; export https_proxy=$proxy_url8
 alias proxyon_research="export http_proxy=$proxy_url9; export https_proxy=$proxy_url9;proxy|tee ~/.proxy.sh"
 alias proxyon_pitcCIS="export http_proxy=$proxy_url10; export https_proxy=$proxy_url10;proxy|tee ~/.proxy.sh"
 alias proxyon_qnap="export http_proxy=$proxy_url11; export https_proxy=$proxy_url11;proxy|tee ~/.proxy.sh"
+alias proxyon_repo="export http_proxy=$proxy_url12; export https_proxy=$proxy_url12;proxy|tee ~/.proxy.sh"
 
 
 alias proxyoff="unset http_proxy; unset https_proxy; unset ftp_proxy;proxy|tee ~/.proxy.sh"

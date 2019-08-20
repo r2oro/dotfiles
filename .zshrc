@@ -50,7 +50,7 @@ alias zcp='zmv -C'
 alias zln='zmv -L'
 
 export LESS=-XR
-PATH=$HOME/bin:/usr/local/opt/ruby/bin:$PATH
+PATH=$HOME/bin:$PATH
 export CDPATH=$HOME:$HOME/chef/cookbooks
 alias arole='source $HOME/bin/set_aws_role.sh'
 alias aacc='source $HOME/bin/set_aws_account.sh'
