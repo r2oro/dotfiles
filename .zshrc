@@ -67,15 +67,24 @@ alias jqc='jq -C "."'
 alias l=less
 
 # Chef Aliases
-alias chprod='source $HOME/bin/swchef prod'
-alias chdev='source $HOME/bin/swchef dev'
+alias chprod='source $HOME/bin/swchef healthcare-prod'
+alias chdev='source $HOME/bin/swchef healthcare-dev'
 alias chdcar='source $HOME/bin/swchef dcar'
-alias choprod='source $HOME/bin/swchef oprod'
-alias chodev='source $HOME/bin/swchef odev'
-alias chtprod='source $HOME/bin/swchef tprod'
-alias chtdev='source $HOME/bin/swchef tdev'
-alias chpwdev='source $HOME/bin/swchef pwdev'
+
+alias chp-datalake='source $HOME/bin/swchef datalake'
+alias chp-energy='source $HOME/bin/swchef energy'
+alias chp-lab='source $HOME/bin/swchef lab'
+alias chp-myplant='source $HOME/bin/swchef myplant'
+alias chp-power-water='source $HOME/bin/swchef power-water'
+alias chp-pwr-sharedhr='source $HOME/bin/swchef pwr-sharedhr'
+alias chp-power-water-dev='source $HOME/bin/swchef power-water-dev'
+
 alias chnone='unset CHEF_SERVER_URL CHEF_PEM'
+
+# Scalr Aliases
+alias sc-healthcare='export SCALRCLI_HOME=~/.scalr-healthcare'
+alias sc-corporate='export SCALRCLI_HOME=~/.scalr-corporate'
+alias sc-none='unset SCALRCLI_HOME'
 
 # Close shell only after 2 consecutive EOFs
 setopt IGNORE_EOF
