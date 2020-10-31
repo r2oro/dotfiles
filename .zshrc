@@ -33,6 +33,9 @@ plugins=(git docker brew github osx knife kitchen vagrant aws compleat dirpersis
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+SHOW_AWS_PROMPT=false
+
+export ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 # source ~/.nvm/nvm.sh

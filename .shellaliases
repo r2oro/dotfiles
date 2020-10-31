@@ -36,7 +36,7 @@ export proxy_url9=http://proxy-src.research.ge.com:8080
 export proxy_url10=http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
 export proxy_url11=http://192.168.1.10:3128
 export proxy_url12=http://10.229.163.78:80
-
+export proxy_url13=PITC-Zscaler-EMEA-London3PR.proxy.corporate.ge.com:80
 
 # These aliases are used to check the proxy and turn it on and off
 alias proxy="env |grep -i _proxy"
@@ -45,13 +45,14 @@ alias proxyon_cin="export http_proxy=$proxy_url2; export https_proxy=$proxy_url2
 alias proxyon_cin2="export http_proxy=$proxy_url3; export https_proxy=$proxy_url3;proxy|tee ~/.proxy.sh"
 alias proxyon_money="export http_proxy=$proxy_url4; export https_proxy=$proxy_url4;proxy|tee ~/.proxy.sh"
 alias proxyon_myapps="export http_proxy=$proxy_url5; export https_proxy=$proxy_url5;proxy|tee ~/.proxy.sh"
-alias proxyon_pitc="export http_proxy=$proxy_url6; export https_proxy=$proxy_url6;proxy|tee ~/.proxy.sh"
+alias proxyon_pitc_cin="export http_proxy=$proxy_url6; export https_proxy=$proxy_url6;proxy|tee ~/.proxy.sh"
 alias proxyon_health="export http_proxy=$proxy_url7; export https_proxy=$proxy_url7;proxy|tee ~/.proxy.sh"
 alias proxyon_cis="export http_proxy=$proxy_url8; export https_proxy=$proxy_url8;proxy|tee ~/.proxy.sh"
 alias proxyon_research="export http_proxy=$proxy_url9; export https_proxy=$proxy_url9;proxy|tee ~/.proxy.sh"
 alias proxyon_pitcCIS="export http_proxy=$proxy_url10; export https_proxy=$proxy_url10;proxy|tee ~/.proxy.sh"
 alias proxyon_qnap="export http_proxy=$proxy_url11; export https_proxy=$proxy_url11;proxy|tee ~/.proxy.sh"
 alias proxyon_repo="export http_proxy=$proxy_url12; export https_proxy=$proxy_url12;proxy|tee ~/.proxy.sh"
+alias proxyon_pitc_london="export http_proxy=$proxy_url13; export https_proxy=$proxy_url13;proxy|tee ~/.proxy.sh"
 
 
 alias proxyoff="unset http_proxy; unset https_proxy; unset ftp_proxy;proxy|tee ~/.proxy.sh"

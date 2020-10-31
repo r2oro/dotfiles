@@ -60,6 +60,7 @@ ys_scalr_prompt() {
 		echo -n "%{$reset_color%}SCALR:${color}${scalr} "
 	fi
 }
+
 local aws_prompt='$(ys_aws_prompt)'
 ys_aws_prompt() {
 	if [[ -n "$AWS_PROFILE" ]]; then
@@ -84,9 +85,10 @@ ys_aws_prompt() {
 # %{$fg[white]%}@ \
 # %{$fg[green]%}%m \
 
+# PROMPT='$ '
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
-${chef_prompt}${scalr_prompt}${aws_prompt}\
+${chef_prompt}${scalr_prompt}${aws_prompt} \
 %{$fg[white]%}\
 %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
