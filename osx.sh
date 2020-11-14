@@ -7,30 +7,30 @@ source ./lib.sh
 # Ask for the administrator password upfront
 
 bot "checking sudo state..."
-if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
-
-  # Ask for the administrator password upfront
-  bot "I need you to enter your sudo password so I can install some things:"
-  sudo -v
-
-  # Keep-alive: update existing sudo time stamp until the script has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-#   bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
+# if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 #
-#   read -r -p "Make sudo passwordless? [y|N] " response
+#   # Ask for the administrator password upfront
+#   bot "I need you to enter your sudo password so I can install some things:"
+#   sudo -v
 #
-#   if [[ $response =~ (yes|y|Y) ]];then
-#       sed --version 2>&1 > /dev/null
-#       if [[ $? == 0 ]];then
-#           sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-#       else
-#           sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-#       fi
-#       sudo dscl . append /Groups/wheel GroupMembership $(whoami)
-#       bot "You can now run sudo commands without password!"
-#   fi
-fi
+#   # Keep-alive: update existing sudo time stamp until the script has finished
+#   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+#
+# #   bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
+# #
+# #   read -r -p "Make sudo passwordless? [y|N] " response
+# #
+# #   if [[ $response =~ (yes|y|Y) ]];then
+# #       sed --version 2>&1 > /dev/null
+# #       if [[ $? == 0 ]];then
+# #           sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+# #       else
+# #           sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+# #       fi
+# #       sudo dscl . append /Groups/wheel GroupMembership $(whoami)
+# #       bot "You can now run sudo commands without password!"
+# #   fi
+# fi
 ok
 
 #####
@@ -53,7 +53,7 @@ running "checking brew-cask install"
 output=$(brew tap | grep cask)
 if [[ $? != 0 ]]; then
 	action "installing brew-cask"
-	require_brew caskroom/cask/brew-cask
+	require_brew homebrew/cask
 fi
 ok
 
@@ -133,9 +133,9 @@ require_brew graphviz
 require_brew gnupg
 # Install GNU `sed`, overwriting the built-in `sed`
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
-require_brew gnu-sed --default-names
+require_brew gnu-sed # --default-names
 # better, more recent grep
-require_brew homebrew/dupes/grep
+require_brew grep
 require_brew hub
 # jq is a JSON grep
 require_brew jq
@@ -157,14 +157,14 @@ require_brew polipo
 require_brew readline
 # require_brew redis
 # better/more recent version of screen
-require_brew homebrew/dupes/screen
+require_brew screen
 require_brew tree
 require_brew ttyrec
 # better, more recent vim
-require_brew vim --override-system-vi
+require_brew vim # --override-system-vi
 require_brew watch
 # Install wget with IRI support
-require_brew wget --with-iri
+require_brew wget # --with-iri
 require_brew zsh
 require_brew proxytunnel
 require_brew corkscrew
@@ -173,9 +173,9 @@ require_brew autojump
 # Terraform
 require_brew terraform
 
-# Gossamer
-brew tap GESkunkworks/gossamer https://github.com/GESkunkworks/geskunkworks-taps
-require_brew gossamer
+# # Gossamer
+# brew tap GESkunkworks/gossamer https://github.com/GESkunkworks/geskunkworks-taps
+# require_brew gossamer
 
 # AWS SAM (Serverless Application Model - for CloudFormation)
 brew tap aws/tap
@@ -197,25 +197,26 @@ require_cask atom
 
 # cloud storage
 #require_cask amazon-cloud-drive
-require_cask box-sync
-require_cask dropbox
-require_cask google-drive
+# require_cask box-sync
+# require_cask dropbox #installed
+require_cask google-backup-and-sync
 require_cask evernote
 require_cask cyberduck
 #require_cask skydrive
 
 # communication
-require_cask colloquy
+require_cask colloquay
 #require_cask adium
 require_cask slack
-require_cask flowdock
+# require_cask flowdock
+require_cask zoom
 
 # tools
 #require_cask comicbooklover
 require_cask diffmerge
 require_cask grandperspective
-require_cask github-desktop
-require_cask gpgtools
+# require_cask github-desktop
+# require_cask gpgtools
 require_cask iterm2
 #require_cask licecap
 require_cask onyx
@@ -229,16 +230,16 @@ require_cask cocoarestclient
 
 # media
 require_cask vlc
-require_cask flash-player
+# require_cask flash-player
 require_cask calibre
 require_cask kindle
-require_cask gimp
+# require_cask gimp
 require_cask picasa
 #require_cask sketchup
 #require_cask simple-comic
 
 # passwords
-require_cask keepassx
+# require_cask keepassx #already installed
 #require_cask dashlane
 
 # GUI helpers
@@ -252,8 +253,8 @@ require_cask macid
 # development browsers
 # require_cask breach
 require_cask firefox
-#require_cask firefox-aurora
-require_cask google-chrome
+# require_cask firefox-aurora
+# require_cask google-chrome #installed
 #require_cask cord
 require_cask rcdefaultapp
 
@@ -261,7 +262,8 @@ require_cask rcdefaultapp
 require_cask virtualbox
 require_cask virtualbox-extension-pack
 # chef-dk, berkshelf, etc
-require_cask chefdk
+# require_cask chefdk
+# require_cask chef-workstation
 # vagrant for running dev environments using docker images
 require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
@@ -280,7 +282,7 @@ cp -r aws-tools ~/aws-tools
 bot "python pip installs"                     #
 ################################################
 pip install --upgrade pip
-pip install scalr-ctl
+# pip install scalr-ctl
 pip install aws-shell
 
 ###############################################################################
@@ -305,8 +307,8 @@ bot "Configuring General System UI/UX..."
 # running "…and make sure it can’t be rewritten"
 # sudo chflags uchg /Private/var/vm/sleepimage;ok
 
-running "Disable the sudden motion sensor as it’s not useful for SSDs"
-sudo pmset -a sms 0;ok
+# running "Disable the sudden motion sensor as it’s not useful for SSDs"
+# sudo pmset -a sms 0;ok
 
 ################################################
 # Optional / Experimental                      #
@@ -456,8 +458,8 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 running "Restart automatically if the computer freezes"
 sudo systemsetup -setrestartfreeze on;ok
 
-running "Never go into computer sleep mode"
-sudo systemsetup -setcomputersleep Off > /dev/null;ok
+# running "Never go into computer sleep mode"
+# sudo systemsetup -setcomputersleep Off > /dev/null;ok
 
 running "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok
@@ -490,8 +492,8 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryCli
 # running "Disable “natural” (Lion-style) scrolling"
 # defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
-running "Increase sound quality for Bluetooth headphones/headsets"
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
+# running "Increase sound quality for Bluetooth headphones/headsets"
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
 
 running "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3;ok
@@ -515,8 +517,8 @@ defaults write NSGlobalDomain AppleLocale -string "en_EN@currency=PLN"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true;ok
 
-running "Disable auto-correct"
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;ok
+# running "Disable auto-correct"
+# defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;ok
 
 ###############################################################################
 bot "Configuring the Screen"
@@ -633,8 +635,8 @@ defaults write com.apple.dock mouse-over-hilite-stack -bool true;ok
 running "Set the icon size of Dock items to 36 pixels"
 defaults write com.apple.dock tilesize -int 36;ok
 
-running "Change minimize/maximize window effect to scale"
-defaults write com.apple.dock mineffect -string "scale";ok
+# running "Change minimize/maximize window effect to scale"
+# defaults write com.apple.dock mineffect -string "scale";ok
 
 running "Minimize windows into their application’s icon"
 defaults write com.apple.dock minimize-to-application -bool true;ok
@@ -666,8 +668,8 @@ defaults write com.apple.dock mru-spaces -bool false;ok
 
 running "Remove the auto-hiding Dock delay"
 defaults write com.apple.dock autohide-delay -float 0;ok
-running "Remove the animation when hiding/showing the Dock"
-defaults write com.apple.dock autohide-time-modifier -float 0;ok
+# running "Remove the animation when hiding/showing the Dock"
+# defaults write com.apple.dock autohide-time-modifier -float 0;ok
 
 running "Automatically hide and show the Dock"
 defaults write com.apple.dock autohide -bool true;ok
@@ -681,8 +683,8 @@ defaults write com.apple.dock hide-mirror -bool true;ok
 running "Reset Launchpad, but keep the desktop wallpaper intact"
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete;ok
 
-running "Add iOS Simulator to Launchpad"
-sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app";ok
+# running "Add iOS Simulator to Launchpad"
+# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app";ok
 
 
 # bot "Configuring Hot Corners"
@@ -712,8 +714,8 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulato
 bot "Configuring Safari & WebKit"
 ###############################################################################
 
-running "Set Safari’s home page to ‘about:blank’ for faster loading"
-defaults write com.apple.Safari HomePage -string "about:blank";ok
+# running "Set Safari’s home page to ‘about:blank’ for faster loading"
+# defaults write com.apple.Safari HomePage -string "about:blank";ok
 
 running "Prevent Safari from opening ‘safe’ files automatically after downloading"
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false;ok
@@ -736,8 +738,8 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true;ok
 running "Make Safari’s search banners default to Contains instead of Starts With"
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false;ok
 
-running "Remove useless icons from Safari’s bookmarks bar"
-defaults write com.apple.Safari ProxiesInBookmarksBar "()";ok
+# running "Remove useless icons from Safari’s bookmarks bar"
+# defaults write com.apple.Safari ProxiesInBookmarksBar "()";ok
 
 running "Enable the Develop menu and the Web Inspector in Safari"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
@@ -765,7 +767,7 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\
 running "Display emails in threaded mode, sorted by date (oldest at the top)"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date";ok
+# defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date";ok
 
 # running "Disable inline attachments (just show the icons)"
 # defaults write com.apple.mail DisableInlineAttachmentViewing -bool true;ok
@@ -773,40 +775,40 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -stri
 # running "Disable automatic spell checking"
 # defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
 
-###############################################################################
-bot "Spotlight"
-###############################################################################
-
-# running "Hide Spotlight tray-icon (and subsequent helper)"
-# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
-
-running "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed"
-# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes";ok
-running "Change indexing order and disable some file types from being indexed"
-defaults write com.apple.spotlight orderedItems -array \
-	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
-	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
-	'{"enabled" = 1;"name" = "PDF";}' \
-	'{"enabled" = 1;"name" = "FONTS";}' \
-	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
-	'{"enabled" = 0;"name" = "MESSAGES";}' \
-	'{"enabled" = 0;"name" = "CONTACT";}' \
-	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
-	'{"enabled" = 0;"name" = "IMAGES";}' \
-	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
-	'{"enabled" = 0;"name" = "MUSIC";}' \
-	'{"enabled" = 0;"name" = "MOVIES";}' \
-	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-	'{"enabled" = 0;"name" = "SOURCE";}';ok
-running "Load new settings before rebuilding the index"
-killall mds > /dev/null 2>&1;ok
-running "Make sure indexing is enabled for the main volume"
-sudo mdutil -i on / > /dev/null;ok
-#running "Rebuild the index from scratch"
-#sudo mdutil -E / > /dev/null;ok
+# ###############################################################################
+# bot "Spotlight"
+# ###############################################################################
+#
+# # running "Hide Spotlight tray-icon (and subsequent helper)"
+# # sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
+#
+# running "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed"
+# # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
+# sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes";ok
+# running "Change indexing order and disable some file types from being indexed"
+# defaults write com.apple.spotlight orderedItems -array \
+# 	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
+# 	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+# 	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
+# 	'{"enabled" = 1;"name" = "PDF";}' \
+# 	'{"enabled" = 1;"name" = "FONTS";}' \
+# 	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
+# 	'{"enabled" = 0;"name" = "MESSAGES";}' \
+# 	'{"enabled" = 0;"name" = "CONTACT";}' \
+# 	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
+# 	'{"enabled" = 0;"name" = "IMAGES";}' \
+# 	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
+# 	'{"enabled" = 0;"name" = "MUSIC";}' \
+# 	'{"enabled" = 0;"name" = "MOVIES";}' \
+# 	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+# 	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+# 	'{"enabled" = 0;"name" = "SOURCE";}';ok
+# running "Load new settings before rebuilding the index"
+# killall mds > /dev/null 2>&1;ok
+# running "Make sure indexing is enabled for the main volume"
+# sudo mdutil -i on / > /dev/null;ok
+# #running "Rebuild the index from scratch"
+# #sudo mdutil -E / > /dev/null;ok
 
 ###############################################################################
 bot "Terminal & iTerm2"
@@ -911,8 +913,8 @@ defaults write com.apple.appstore ShowDebugMenu -bool true;ok
 bot "Messages"
 ###############################################################################
 
-running "Disable automatic emoji substitution (i.e. use plain text smileys)"
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false;ok
+# running "Disable automatic emoji substitution (i.e. use plain text smileys)"
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false;ok
 
 running "Disable smart quotes as it’s annoying for messages that contain code"
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false;ok
@@ -975,9 +977,9 @@ require_apm atom-beautify
 bot "Polipo"
 ###############################################################################
 
-running "Configure Polipo to start at bootup"
-ln -sfv /usr/local/opt/polipo/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.polipo.plist
+# running "Configure Polipo to start at bootup"
+# ln -sfv /usr/local/opt/polipo/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.polipo.plist
 
 
 # ###############################################################################
@@ -1010,7 +1012,7 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.polipo.plist
 ###############################################################################
 bot "Ruby Gems..."
 ###############################################################################
-sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
+sudo chown -R $(whoami) /Library/Ruby/Gems/*
 require_gem git-up
 # require_gem kitchen-ec2
 require_gem aws-sdk-core

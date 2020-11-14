@@ -1,8 +1,5 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
-export EDITOR="atom -w"
-export USE_EDITOR=$EDITOR
-export VISUAL=$EDITOR
 
 # Set name of the theme to load.
 # Look in $ZSH/themes/
@@ -24,8 +21,9 @@ export CASE_SENSITIVE="true"
 # Uncomment following line if you want to disable autosetting terminal title.
 # export DISABLE_AUTO_TITLE="true"
 
-KNIFE_CONF_PATH=$HOME/chef/.chef/knife.rb
-KNIFE_COOKBOOK_PATH=$HOME/chef/cookbooks
+# GE Chef specific
+# KNIFE_CONF_PATH=$HOME/chef/.chef/knife.rb
+# KNIFE_COOKBOOK_PATH=$HOME/chef/cookbooks
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -43,75 +41,83 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 unsetopt correct
 
-# run fortune on new terminal :)
-fortune | cowsay | lolcat
-# fortune | cowsay
+
+PATH=$HOME/bin:$PATH
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+# Proxy
+test -e  "${HOME}/.proxy.sh" && source "${HOME}/.proxy.sh"
+[[ -n "$http_proxy" ]] && export http_proxy
+[[ -n "$https_proxy" ]] && export https_proxy
+
+if [[ "$UID" != "0" ]]; then
+  export EDITOR="atom -w"
+  export USE_EDITOR=$EDITOR
+  export VISUAL=$EDITOR
+fi
+
+export LESS=-XR
 
 autoload -U zmv
+
 # you don't need the following two now, but put them also in your .zshrc
 alias zcp='zmv -C'
 alias zln='zmv -L'
 
-export LESS=-XR
-PATH=$HOME/bin:$PATH
-export CDPATH=$HOME:$HOME/chef/cookbooks
-alias arole='source $HOME/bin/set_aws_role.sh'
-alias aacc='source $HOME/bin/set_aws_account.sh'
-alias sts='source $HOME/bin/set_aws_sts_creds'
-
-#Cago
-alias cagol='source /usr/local/bin/cago.sh list'
-alias cagor='source /usr/local/bin/cago.sh refresh'
-alias cagos='source /usr/local/bin/cago.sh switch'
-alias cagou='source /usr/local/bin/cago.sh unset'
-export CAGO_CONFIG_URL=$HOME/.aws/cago.yaml
+# GE AWS specific
+# export CDPATH=$HOME:$HOME/chef/cookbooks
+# alias arole='source $HOME/bin/set_aws_role.sh'
+# alias aacc='source $HOME/bin/set_aws_account.sh'
+# alias sts='source $HOME/bin/set_aws_sts_creds'
+#
+# #Cago
+# alias cagol='source /usr/local/bin/cago.sh list'
+# alias cagor='source /usr/local/bin/cago.sh refresh'
+# alias cagos='source /usr/local/bin/cago.sh switch'
+# alias cagou='source /usr/local/bin/cago.sh unset'
+# export CAGO_CONFIG_URL=$HOME/.aws/cago.yaml
 
 alias jqc='jq -C "."'
 alias l=less
 
-# Chef Aliases
-alias chprod='source $HOME/bin/swchef healthcare-prod'
-alias chdev='source $HOME/bin/swchef healthcare-dev'
-alias chdcar='source $HOME/bin/swchef dcar'
+# GE Chef Aliases
+# alias chprod='source $HOME/bin/swchef healthcare-prod'
+# alias chdev='source $HOME/bin/swchef healthcare-dev'
+# alias chdcar='source $HOME/bin/swchef dcar'
+#
+# alias chp-datalake='source $HOME/bin/swchef datalake'
+# alias chp-energy='source $HOME/bin/swchef energy'
+# alias chp-lab='source $HOME/bin/swchef lab'
+# alias chp-myplant='source $HOME/bin/swchef myplant'
+# alias chp-power-water='source $HOME/bin/swchef power-water'
+# alias chp-pwr-sharedhr='source $HOME/bin/swchef pwr-sharedhr'
+# alias chp-power-water-dev='source $HOME/bin/swchef power-water-dev'
+#
+# alias chnone='unset CHEF_SERVER_URL CHEF_PEM'
 
-alias chp-datalake='source $HOME/bin/swchef datalake'
-alias chp-energy='source $HOME/bin/swchef energy'
-alias chp-lab='source $HOME/bin/swchef lab'
-alias chp-myplant='source $HOME/bin/swchef myplant'
-alias chp-power-water='source $HOME/bin/swchef power-water'
-alias chp-pwr-sharedhr='source $HOME/bin/swchef pwr-sharedhr'
-alias chp-power-water-dev='source $HOME/bin/swchef power-water-dev'
+# GE Scalr Aliases
+# alias sc-healthcare='export SCALRCLI_HOME=~/.scalr-healthcare'
+# alias sc-corporate='export SCALRCLI_HOME=~/.scalr-corporate'
+# alias sc-none='unset SCALRCLI_HOME'
 
-alias chnone='unset CHEF_SERVER_URL CHEF_PEM'
+# GE CloudPod Init
+# source $HOME/.dotfiles/cloudpod.sh
 
-# Scalr Aliases
-alias sc-healthcare='export SCALRCLI_HOME=~/.scalr-healthcare'
-alias sc-corporate='export SCALRCLI_HOME=~/.scalr-corporate'
-alias sc-none='unset SCALRCLI_HOME'
+# GE Automate Token
+# export ATOK="s1Qvir5Cgx0Fej94_oKRDrx3TLA="
+
+# GE Scalr
+# eval "$(_SCALR_CTL_COMPLETE=source scalr-ctl)"
+
+# GE OpennStack
+# source ~/.dotfiles/_openstack.zsh
+
+# ZSH iTerm2 integratation
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Close shell only after 2 consecutive EOFs
 setopt IGNORE_EOF
 
-# CloudPod Init
-source $HOME/.dotfiles/cloudpod.sh
-
-# Automate Token
-export ATOK="s1Qvir5Cgx0Fej94_oKRDrx3TLA="
-
-# Shell line editing
-
-# Proxy
-. ~/.proxy.sh
-[[ -n "$http_proxy" ]] && export http_proxy
-[[ -n "$https_proxy" ]] && export https_proxy
-
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-
-eval "$(_SCALR_CTL_COMPLETE=source scalr-ctl)"
-
-# OpennStack
-source ~/.dotfiles/_openstack.zsh
+# run fortune on new terminal :)
+fortune | cowsay | lolcat
