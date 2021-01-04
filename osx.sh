@@ -272,11 +272,11 @@ bot "Alright, cleaning up homebrew cache..."
 brew cleanup > /dev/null 2>&1
 bot "All clean"
 
-################################################
-bot "aws/proxy setup"                     #
-################################################
-running "Copying AWS-tools"
-cp -r aws-tools ~/aws-tools
+# ################################################
+# bot "aws/proxy setup"                     #
+# ################################################
+# running "Copying AWS-tools"
+# cp -r aws-tools ~/aws-tools
 
 ################################################
 bot "python pip installs"                     #
