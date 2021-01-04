@@ -49,13 +49,14 @@ if [[ $? != 0 ]]; then
 fi
 ok
 
-running "checking brew-cask install"
-output=$(brew tap | grep cask)
-if [[ $? != 0 ]]; then
-	action "installing brew-cask"
-	require_brew homebrew/cask
-fi
-ok
+# Depreciated
+# running "checking brew-cask install"
+# output=$(brew tap | grep cask)
+# if [[ $? != 0 ]]; then
+# 	action "installing brew-cask"
+# 	require_brew homebrew/cask
+# fi
+# ok
 
 ###############################################################################
 #Install command-line tools using Homebrew                                    #

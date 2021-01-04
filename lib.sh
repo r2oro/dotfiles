@@ -40,17 +40,17 @@ function error() {
 }
 
 function require_cask() {
-    running "brew cask $1"
-    app=`brew cask info $1 | sed -n '/(app)$/s/ (app)//p'`
+    running "brew install --cask $1"
+    app=`brew info --cask $1 | sed -n '/(app)$/s/ (app)//p'`
     if [[ -n "$app" ]] && [[ -d "/Applications/$app" ]]; then
       action "Application /Applications/$app already installed"
       ok
       return 0
     fi
-    brew cask list $1 > /dev/null 2>&1 | true
+    brew list --cask $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
-        action "brew cask install $1 $2"
-        brew cask install $1
+        action "brew install --cask $1 $2"
+        brew install --cask $1
         if [[ $? != 0 ]]; then
             error "failed to install $1!"
             # exit -1
