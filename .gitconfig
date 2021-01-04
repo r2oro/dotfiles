@@ -1,6 +1,6 @@
 [user]
-	name = 212481589
-	email = artur.pioro@ge.com
+	name = r2oro
+	email = artupior@gmail.com
 [github]
   # https://github.com/blog/180-local-github-config
   user = r2oro
@@ -205,7 +205,7 @@
 	smudge = git-lfs smudge -- %f
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

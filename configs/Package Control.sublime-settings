@@ -1,4 +1,4 @@
-{
-"http_proxy": "http-proxy.corporate.ge.com:80",
-"https_proxy": "http-proxy.corporate.ge.com:80",
-}
+#{
+#"http_proxy": "http-proxy.corporate.ge.com:80",
+#"https_proxy": "http-proxy.corporate.ge.com:80",
+#}
