@@ -209,7 +209,7 @@ require_cask colloquay
 #require_cask adium
 require_cask slack
 # require_cask flowdock
-require_cask zoom
+# require_cask zoom
 
 # tools
 #require_cask comicbooklover
@@ -229,12 +229,12 @@ require_cask cocoarestclient
 #require_cask deluge
 
 # media
-require_cask vlc
+# require_cask vlc
 # require_cask flash-player
-require_cask calibre
-require_cask kindle
+# require_cask calibre
+# require_cask kindle
 # require_cask gimp
-require_cask picasa
+# require_cask picasa
 #require_cask sketchup
 #require_cask simple-comic
 
@@ -246,7 +246,7 @@ require_cask picasa
 require_cask sizeup
 require_cask spectacle
 require_cask karabiner-elements
-require_cask magicprefs
+# require_cask magicprefs
 require_cask cheatsheet
 require_cask macid
 
@@ -776,7 +776,7 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending
 # defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
 
 # ###############################################################################
-# bot "Spotlight"
+bot "Spotlight"
 # ###############################################################################
 #
 # # running "Hide Spotlight tray-icon (and subsequent helper)"
@@ -805,10 +805,10 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending
 # 	'{"enabled" = 0;"name" = "SOURCE";}';ok
 # running "Load new settings before rebuilding the index"
 # killall mds > /dev/null 2>&1;ok
-# running "Make sure indexing is enabled for the main volume"
-# sudo mdutil -i on / > /dev/null;ok
-# #running "Rebuild the index from scratch"
-# #sudo mdutil -E / > /dev/null;ok
+running "Make sure indexing is enabled for the main volume"
+sudo mdutil -i on / > /dev/null;ok
+running "Rebuild the index from scratch"
+sudo mdutil -E / > /dev/null;ok
 
 ###############################################################################
 bot "Terminal & iTerm2"

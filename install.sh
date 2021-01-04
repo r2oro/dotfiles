@@ -5,7 +5,7 @@
 # @author Adam Eivy
 ###########################
 
-DEFAULT_EMAIL=artupior@gmail.com
+DEFAULT_EMAIL=artur.pioro@ibm.com
 DEFAULT_GITHUBUSER=$DEFAULT_EMAIL
 DEFAULT_NAME="Artur Pioro"
 DEFAULT_USERNAME="arpi"
