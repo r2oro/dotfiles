@@ -55,6 +55,8 @@ if [[ "$UID" != "0" ]]; then
   export EDITOR="atom -w"
   export USE_EDITOR=$EDITOR
   export VISUAL=$EDITOR
+else
+  unset EDITOR USE_EDITOR VISUAL
 fi
 
 export LESS=-XR
